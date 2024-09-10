@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\VisualStudioProjects\\Managment\\Managment\\Managment.csproj",
+      "projectUniqueName": "F:\\VisualStudioProjects\\Managment\\Managment.csproj",
       "projectName": "Managment",
-      "projectPath": "F:\\VisualStudioProjects\\Managment\\Managment\\Managment.csproj",
+      "projectPath": "F:\\VisualStudioProjects\\Managment\\Managment.csproj",
       "packagesPath": "C:\\Users\\John_S\\.nuget\\packages\\",
-      "outputPath": "F:\\VisualStudioProjects\\Managment\\Managment\\obj\\",
+      "outputPath": "F:\\VisualStudioProjects\\Managment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\John_S\\AppData\\Roaming\\NuGet\\NuGet.Config",
