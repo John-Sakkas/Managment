@@ -33,6 +33,7 @@
             PasswordLabel = new Label();
             passwordText = new TextBox();
             label1 = new Label();
+            loginButton = new Button();
             SuspendLayout();
             // 
             // UsernameLabel
@@ -80,11 +81,22 @@
             label1.TabIndex = 4;
             label1.Text = "Welcome";
             // 
+            // loginButton
+            // 
+            loginButton.Location = new Point(263, 301);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(101, 52);
+            loginButton.TabIndex = 5;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += loginButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(616, 356);
+            ClientSize = new Size(616, 406);
+            Controls.Add(loginButton);
             Controls.Add(label1);
             Controls.Add(passwordText);
             Controls.Add(PasswordLabel);
@@ -103,5 +115,6 @@
         private Label PasswordLabel;
         private TextBox passwordText;
         private Label label1;
+        private Button loginButton;
     }
 }
