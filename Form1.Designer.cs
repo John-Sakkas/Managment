@@ -28,93 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            UsernameLabel = new Label();
-            userNameText = new TextBox();
-            PasswordLabel = new Label();
             passwordText = new TextBox();
             label1 = new Label();
             loginButton = new Button();
+            panel1 = new Panel();
+            passwordLabel = new Label();
+            usernameText = new TextBox();
+            usernameLabel = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // UsernameLabel
-            // 
-            UsernameLabel.AutoSize = true;
-            UsernameLabel.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UsernameLabel.Location = new Point(252, 149);
-            UsernameLabel.Name = "UsernameLabel";
-            UsernameLabel.Size = new Size(136, 37);
-            UsernameLabel.TabIndex = 0;
-            UsernameLabel.Text = "Username";
-            // 
-            // userNameText
-            // 
-            userNameText.Location = new Point(211, 189);
-            userNameText.Name = "userNameText";
-            userNameText.Size = new Size(215, 23);
-            userNameText.TabIndex = 1;
-            // 
-            // PasswordLabel
-            // 
-            PasswordLabel.AutoSize = true;
-            PasswordLabel.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PasswordLabel.Location = new Point(252, 215);
-            PasswordLabel.Name = "PasswordLabel";
-            PasswordLabel.Size = new Size(128, 37);
-            PasswordLabel.TabIndex = 2;
-            PasswordLabel.Text = "Password";
             // 
             // passwordText
             // 
-            passwordText.Location = new Point(211, 255);
+            passwordText.Location = new Point(97, 276);
+            passwordText.Multiline = true;
             passwordText.Name = "passwordText";
-            passwordText.Size = new Size(215, 23);
+            passwordText.PasswordChar = '*';
+            passwordText.Size = new Size(215, 36);
             passwordText.TabIndex = 3;
+            passwordText.TextAlign = HorizontalAlignment.Center;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(211, 43);
+            label1.Location = new Point(115, 47);
             label1.Name = "label1";
-            label1.Size = new Size(224, 65);
+            label1.Size = new Size(174, 65);
             label1.TabIndex = 4;
-            label1.Text = "Welcome";
+            label1.Text = "Sing In";
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(263, 301);
+            loginButton.BackColor = SystemColors.MenuHighlight;
+            loginButton.BackgroundImageLayout = ImageLayout.None;
+            loginButton.Location = new Point(159, 342);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(101, 52);
             loginButton.TabIndex = 5;
-            loginButton.Text = "Login";
-            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Text = "Submit";
+            loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(410, 146);
+            panel1.TabIndex = 7;
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.BackColor = SystemColors.Window;
+            passwordLabel.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordLabel.ForeColor = SystemColors.AppWorkspace;
+            passwordLabel.Location = new Point(149, 278);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(111, 32);
+            passwordLabel.TabIndex = 8;
+            passwordLabel.Text = "Password";
+            // 
+            // usernameText
+            // 
+            usernameText.Location = new Point(97, 201);
+            usernameText.Multiline = true;
+            usernameText.Name = "usernameText";
+            usernameText.PasswordChar = '*';
+            usernameText.Size = new Size(215, 36);
+            usernameText.TabIndex = 9;
+            usernameText.TextAlign = HorizontalAlignment.Center;
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.BackColor = SystemColors.Window;
+            usernameLabel.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernameLabel.ForeColor = SystemColors.AppWorkspace;
+            usernameLabel.Location = new Point(149, 203);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(121, 32);
+            usernameLabel.TabIndex = 10;
+            usernameLabel.Text = "Username";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(616, 406);
+            ClientSize = new Size(410, 483);
+            Controls.Add(usernameLabel);
+            Controls.Add(usernameText);
+            Controls.Add(passwordLabel);
+            Controls.Add(panel1);
             Controls.Add(loginButton);
-            Controls.Add(label1);
             Controls.Add(passwordText);
-            Controls.Add(PasswordLabel);
-            Controls.Add(userNameText);
-            Controls.Add(UsernameLabel);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "Form1";
+            ShowIcon = false;
+            ShowInTaskbar = false;
             Text = "Login";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label UsernameLabel;
         private TextBox userNameText;
-        private Label PasswordLabel;
         private TextBox passwordText;
         private Label label1;
         private Button loginButton;
+        private Panel panel1;
+        private Label passwordLabel;
+        private TextBox usernameText;
+        private Label usernameLabel;
     }
 }

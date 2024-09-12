@@ -15,7 +15,7 @@ namespace Managment
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string userName , password;
+            string userName, password;
             userName = userNameText.Text;
             password = passwordText.Text;
 
@@ -30,7 +30,8 @@ namespace Managment
 
                 if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("Login Succes");
+
+                    MessageBox.Show(dt.Rows[0]["username"].ToString() + " Login Succes");
                 }
                 else
                 {
@@ -42,7 +43,7 @@ namespace Managment
             {
                 MessageBox.Show(ex.Message);
             }
-            finally 
+            finally
             {
                 conn.Close();
             }
