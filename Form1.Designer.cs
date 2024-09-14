@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            loginButton = new Button();
             panel1 = new Panel();
             label2 = new Label();
             panel2 = new Panel();
-            passwordText = new TextBox();
-            usernameText = new TextBox();
+            passwordText = new CustomPanelWithTextBox();
+            usernameText = new CustomPanelWithTextBox();
+            customToolbox1 = new CustomPanel();
+            errorMessage = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -45,25 +46,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(83, 47);
+            label1.Location = new Point(83, 41);
             label1.Name = "label1";
             label1.Size = new Size(174, 65);
             label1.TabIndex = 4;
             label1.Text = "Sing In";
-            // 
-            // loginButton
-            // 
-            loginButton.Anchor = AnchorStyles.None;
-            loginButton.BackColor = SystemColors.MenuHighlight;
-            loginButton.BackgroundImageLayout = ImageLayout.None;
-            loginButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginButton.Location = new Point(117, 193);
-            loginButton.Name = "loginButton";
-            loginButton.Size = new Size(101, 52);
-            loginButton.TabIndex = 5;
-            loginButton.Text = "Submit";
-            loginButton.UseVisualStyleBackColor = false;
-            loginButton.Click += loginButton_Click;
             // 
             // panel1
             // 
@@ -90,10 +77,12 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(errorMessage);
             panel2.Controls.Add(passwordText);
             panel2.Controls.Add(usernameText);
-            panel2.Controls.Add(loginButton);
+            panel2.Controls.Add(customToolbox1);
             panel2.Dock = DockStyle.Fill;
+            panel2.ForeColor = SystemColors.ControlText;
             panel2.Location = new Point(0, 146);
             panel2.Name = "panel2";
             panel2.Size = new Size(347, 337);
@@ -101,31 +90,67 @@
             // 
             // passwordText
             // 
-            passwordText.Anchor = AnchorStyles.None;
-            passwordText.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            passwordText.ForeColor = Color.LightGray;
-            passwordText.Location = new Point(52, 120);
+            passwordText.BackColor = Color.Transparent;
+            passwordText.BorderRadius = 30;
+            passwordText.CustomPasswordChar = '*';
+            passwordText.CustomText = "Password";
+            passwordText.CustomTextColor = Color.LightGray;
+            passwordText.DefaultColor = Color.White;
+            passwordText.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordText.ForeColor = Color.Black;
+            passwordText.GradientAngle = 90F;
+            passwordText.Location = new Point(55, 111);
             passwordText.Name = "passwordText";
-            passwordText.Size = new Size(242, 33);
-            passwordText.TabIndex = 7;
-            passwordText.Text = "Password";
-            passwordText.TextAlign = HorizontalAlignment.Center;
+            passwordText.Size = new Size(236, 53);
+            passwordText.TabIndex = 12;
             passwordText.Enter += passwordText_Enter;
             passwordText.Leave += passwordText_Leave;
             // 
             // usernameText
             // 
-            usernameText.Anchor = AnchorStyles.None;
-            usernameText.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            usernameText.ForeColor = Color.LightGray;
-            usernameText.Location = new Point(52, 52);
+            usernameText.BackColor = Color.Transparent;
+            usernameText.BorderRadius = 30;
+            usernameText.CustomPasswordChar = '\0';
+            usernameText.CustomText = "Username";
+            usernameText.CustomTextColor = Color.LightGray;
+            usernameText.DefaultColor = Color.White;
+            usernameText.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernameText.ForeColor = Color.Black;
+            usernameText.GradientAngle = 90F;
+            usernameText.Location = new Point(55, 41);
             usernameText.Name = "usernameText";
-            usernameText.Size = new Size(242, 33);
-            usernameText.TabIndex = 6;
-            usernameText.Text = "Username";
-            usernameText.TextAlign = HorizontalAlignment.Center;
+            usernameText.Size = new Size(236, 53);
+            usernameText.TabIndex = 11;
             usernameText.Enter += usernameText_Enter;
             usernameText.Leave += usernameText_Leave;
+            // 
+            // customToolbox1
+            // 
+            customToolbox1.BackColor = Color.Transparent;
+            customToolbox1.BorderRadius = 30;
+            customToolbox1.CustomText = "Submit";
+            customToolbox1.DefaultColor = Color.DodgerBlue;
+            customToolbox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customToolbox1.ForeColor = Color.Black;
+            customToolbox1.GradientAngle = 90F;
+            customToolbox1.Location = new Point(95, 220);
+            customToolbox1.Name = "customToolbox1";
+            customToolbox1.Size = new Size(162, 62);
+            customToolbox1.TabIndex = 10;
+            customToolbox1.Click += loginButton_Click;
+            customToolbox1.MouseDown += customToolbox1_MouseDown;
+            customToolbox1.MouseEnter += customToolbox1_MouseEnter;
+            customToolbox1.MouseLeave += customToolbox1_MouseLeave;
+            // 
+            // errorMessage
+            // 
+            errorMessage.AutoSize = true;
+            errorMessage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            errorMessage.ForeColor = Color.IndianRed;
+            errorMessage.Location = new Point(55, 181);
+            errorMessage.Name = "errorMessage";
+            errorMessage.Size = new Size(0, 21);
+            errorMessage.TabIndex = 13;
             // 
             // Form1
             // 
@@ -150,13 +175,13 @@
         }
 
         #endregion
-        private TextBox userNameText;
         private Label label1;
-        private Button loginButton;
         private Panel panel1;
         private Panel panel2;
-        private TextBox usernameText;
-        private TextBox passwordText;
         private Label label2;
+        private CustomPanel customToolbox1;
+        private CustomPanelWithTextBox usernameText;
+        private CustomPanelWithTextBox passwordText;
+        private Label errorMessage;
     }
 }

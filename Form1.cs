@@ -16,8 +16,8 @@ namespace Managment
         private void loginButton_Click(object sender, EventArgs e)
         {
             string userName, password;
-            userName = usernameText.Text;
-            password = passwordText.Text;
+            userName = usernameText.CustomText;
+            password = passwordText.CustomText;
 
             try
             {
@@ -30,12 +30,12 @@ namespace Managment
 
                 if (dt.Rows.Count > 0)
                 {
-
                     MessageBox.Show(dt.Rows[0]["username"].ToString() + " Login Succes");
+                    errorMessage.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Wrong Passowrd");
+                    errorMessage.Text = "Incorrect values";
                 }
 
             }
@@ -51,46 +51,57 @@ namespace Managment
 
         private void usernameText_Enter(object sender, EventArgs e)
         {
-            if (usernameText.Text == "Username")
+            if (usernameText.CustomText == "Username")
             {
-                usernameText.Text = "";
-                usernameText.ForeColor = Color.Black;
+                usernameText.CustomText = "";
+                usernameText.CustomTextColor = Color.Black;
             }
+            errorMessage.Text = "";
         }
-
-        private void usernameText_Leave(object sender, EventArgs e)
-        {
-            if (usernameText.Text == "")
-            {
-                usernameText.Text = "Username";
-                usernameText.ForeColor = Color.LightGray;
-
-            }
-        }
-
         private void passwordText_Enter(object sender, EventArgs e)
         {
-            if (passwordText.Text == "Password")
+            if (passwordText.CustomText == "Password")
             {
-                passwordText.Text = "";
-                passwordText.PasswordChar = '*';
-                passwordText.ForeColor = Color.Black;
+                passwordText.CustomText = "";
+                passwordText.CustomPasswordChar = '*';
+                passwordText.CustomTextColor = Color.Black;
+            }
+            errorMessage.Text = "";
+        }
+        private void usernameText_Leave(object sender, EventArgs e)
+        {
+            if (usernameText.CustomText == "")
+            {
+                usernameText.CustomText = "Username";
+                usernameText.CustomTextColor = Color.LightGray;
             }
         }
-
         private void passwordText_Leave(object sender, EventArgs e)
         {
-            if (passwordText.Text == "")
+            if (passwordText.CustomText == "")
             {
-                passwordText.Text = "Password";
-                passwordText.PasswordChar = '\0';
-                passwordText.ForeColor = Color.LightGray;
+                passwordText.CustomText = "Password";
+                passwordText.CustomPasswordChar = '\0';
+                passwordText.CustomTextColor = Color.LightGray;
             }
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void customToolbox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1C77C3");
+        }
+        private void customToolbox1_MouseEnter(object sender, EventArgs e)
+        {
+            customToolbox1.DefaultColor = ColorTranslator.FromHtml("#63B7FF");
+        }
+        private void customToolbox1_MouseLeave(object sender, EventArgs e)
+        {
+            customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1E90FF");
         }
     }
 }

@@ -40,6 +40,7 @@ F:\VisualStudioProjects\Managment\bin\Debug\net8.0-windows\runtimes\win-x86\nati
 F:\VisualStudioProjects\Managment\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.csproj.AssemblyReference.cache
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.Form1.resources
+F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.Properties.Resources.resources
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.csproj.GenerateResource.cache
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.GeneratedMSBuildEditorConfig.editorconfig
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.AssemblyInfoInputs.cache
@@ -52,4 +53,3 @@ F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\refint\Managment.dll
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.pdb
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.genruntimeconfig.cache
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\ref\Managment.dll
-F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.Properties.Resources.resources
