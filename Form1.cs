@@ -13,31 +13,36 @@ namespace Managment
             InitializeComponent();
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private async void loginButton_Click(object sender, EventArgs e)
         {
-            string userName, password;
-            userName = usernameText.CustomText;
-            password = passwordText.CustomText;
+            string userName = usernameText.CustomText;
+            string password = passwordText.CustomText;
 
             try
             {
+                string sqlQuery = "SELECT * FROM USERS WHERE username=@username AND userPassword=@password";
 
-                string sqlQuerry = "SELECT * FROM USERS WHERE username='" + userName + "'AND userPassword='" + password + "'";
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlQuerry, conn);
-
-                DataTable dt = new DataTable();
-                sqlDataAdapter.Fill(dt);
-
-                if (dt.Rows.Count > 0)
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
-                    MessageBox.Show(dt.Rows[0]["username"].ToString() + " Login Succes");
-                    errorMessage.Text = "";
-                }
-                else
-                {
-                    errorMessage.Text = "Incorrect values";
-                }
+                    // Use parameterized queries to prevent SQL injection
+                    cmd.Parameters.AddWithValue("@username", userName);
+                    cmd.Parameters.AddWithValue("@password", password);
 
+                    await conn.OpenAsync(); // Open the connection asynchronously
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync()) // Execute query asynchronously
+                    {
+                        if (await reader.ReadAsync()) // Check if any rows are returned
+                        {
+                            MessageBox.Show(reader["username"].ToString() + " Login Success");
+                            errorMessage.Text = "";
+                        }
+                        else
+                        {
+                            errorMessage.Text = "Incorrect values";
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -45,7 +50,10 @@ namespace Managment
             }
             finally
             {
-                conn.Close();
+                if (conn.State == ConnectionState.Open)
+                {
+                    await conn.CloseAsync(); // Close the connection asynchronously
+                }
             }
         }
 
@@ -89,17 +97,5 @@ namespace Managment
         {
             Application.Exit();
         }
-        //private void customToolbox1_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1C77C3");
-        //}
-        //private void customToolbox1_MouseEnter(object sender, EventArgs e)
-        //{
-        //    customToolbox1.DefaultColor = ColorTranslator.FromHtml("#63B7FF");
-        //}
-        //private void customToolbox1_MouseLeave(object sender, EventArgs e)
-        //{
-        //    customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1E90FF");
-        //}
     }
 }

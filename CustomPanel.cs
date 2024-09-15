@@ -11,6 +11,8 @@ namespace Managment
         // Fields
         private int borderRadius = 30;
 
+        public Color panelBackColor = Color.Empty;
+
         private Color defaultColor = Color.DodgerBlue;
         private Color hoveColor = Color.DodgerBlue;
         private Color clickedColor = Color.DodgerBlue;
@@ -26,6 +28,7 @@ namespace Managment
 
             this.MouseEnter += Panel_MouseEnter;
             this.MouseLeave += Panel_MouseLeave;
+            this.MouseUp += Panel_MouseLeave;
             this.MouseDown += Panel_MouseDown;
         }
 
@@ -38,7 +41,13 @@ namespace Managment
         public Color DefaultColor
         {
             get => defaultColor;
-            set { defaultColor = value; this.Invalidate(); }
+            set 
+            { 
+                defaultColor = value;
+                if (panelBackColor.IsEmpty)
+                    panelBackColor = defaultColor;
+                this.Invalidate(); 
+            }
         }
         public Color HoverColor
         {
@@ -77,7 +86,7 @@ namespace Managment
 
             // Gradient
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (SolidBrush brushCustom = new SolidBrush(this.DefaultColor)) // Use a single color
+            using (SolidBrush brushCustom = new SolidBrush(DefaultColor)) // Use a single color
             {
                 e.Graphics.FillRectangle(brushCustom, this.ClientRectangle); // Fill with one color
             }
@@ -112,7 +121,7 @@ namespace Managment
         }
         private void Panel_MouseLeave(object sender, EventArgs e)
         {
-            DefaultColor = defaultColor;
+            DefaultColor = panelBackColor;
         }
     }
 }
