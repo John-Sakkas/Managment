@@ -32,10 +32,10 @@
             panel1 = new Panel();
             label2 = new Label();
             panel2 = new Panel();
+            errorMessage = new Label();
             passwordText = new CustomPanelWithTextBox();
             usernameText = new CustomPanelWithTextBox();
             customToolbox1 = new CustomPanel();
-            errorMessage = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -54,8 +54,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.MenuHighlight;
-            panel1.Controls.Add(label2);
+            panel1.BackColor = Color.SkyBlue;
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -66,17 +65,18 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = SystemColors.MenuHighlight;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(311, 9);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(156, 293);
             label2.Name = "label2";
-            label2.Size = new Size(24, 25);
+            label2.Size = new Size(44, 25);
             label2.TabIndex = 5;
-            label2.Text = "X";
+            label2.Text = "Exit";
             label2.Click += label2_Click;
             // 
             // panel2
             // 
+            panel2.Controls.Add(label2);
             panel2.Controls.Add(errorMessage);
             panel2.Controls.Add(passwordText);
             panel2.Controls.Add(usernameText);
@@ -87,6 +87,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(347, 337);
             panel2.TabIndex = 11;
+            // 
+            // errorMessage
+            // 
+            errorMessage.AutoSize = true;
+            errorMessage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            errorMessage.ForeColor = Color.IndianRed;
+            errorMessage.Location = new Point(55, 181);
+            errorMessage.Name = "errorMessage";
+            errorMessage.Size = new Size(0, 21);
+            errorMessage.TabIndex = 13;
             // 
             // passwordText
             // 
@@ -128,29 +138,17 @@
             // 
             customToolbox1.BackColor = Color.Transparent;
             customToolbox1.BorderRadius = 30;
-            customToolbox1.CustomText = "Submit";
-            customToolbox1.DefaultColor = Color.DodgerBlue;
+            customToolbox1.ClickedColor = Color.DeepSkyBlue;
+            customToolbox1.DefaultColor = Color.SkyBlue;
             customToolbox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             customToolbox1.ForeColor = Color.Black;
-            customToolbox1.GradientAngle = 90F;
+            customToolbox1.HoverColor = Color.LightSkyBlue;
             customToolbox1.Location = new Point(95, 220);
             customToolbox1.Name = "customToolbox1";
+            customToolbox1.PanelText = "Submit";
             customToolbox1.Size = new Size(162, 62);
             customToolbox1.TabIndex = 10;
             customToolbox1.Click += loginButton_Click;
-            customToolbox1.MouseDown += customToolbox1_MouseDown;
-            customToolbox1.MouseEnter += customToolbox1_MouseEnter;
-            customToolbox1.MouseLeave += customToolbox1_MouseLeave;
-            // 
-            // errorMessage
-            // 
-            errorMessage.AutoSize = true;
-            errorMessage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            errorMessage.ForeColor = Color.IndianRed;
-            errorMessage.Location = new Point(55, 181);
-            errorMessage.Name = "errorMessage";
-            errorMessage.Size = new Size(0, 21);
-            errorMessage.TabIndex = 13;
             // 
             // Form1
             // 

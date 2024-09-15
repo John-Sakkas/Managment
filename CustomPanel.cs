@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Managment
 {
@@ -9,9 +10,12 @@ namespace Managment
     {
         // Fields
         private int borderRadius = 30;
-        private float gradientAngle = 90F;
+
         private Color defaultColor = Color.DodgerBlue;
-        private string customText = "Default Text";
+        private Color hoveColor = Color.DodgerBlue;
+        private Color clickedColor = Color.DodgerBlue;
+
+        private string panelText = "Default Text";
 
         // Constructor
         public CustomPanel()
@@ -19,6 +23,10 @@ namespace Managment
             this.BackColor = Color.White;
             this.ForeColor = Color.Black;
             this.Size = new Size(350, 200);
+
+            this.MouseEnter += Panel_MouseEnter;
+            this.MouseLeave += Panel_MouseLeave;
+            this.MouseDown += Panel_MouseDown;
         }
 
         // Properties
@@ -27,20 +35,25 @@ namespace Managment
             get => borderRadius;
             set { borderRadius = value; this.Invalidate(); }
         }
-        public float GradientAngle
-        {
-            get => gradientAngle;
-            set { gradientAngle = value; this.Invalidate(); }
-        }
         public Color DefaultColor
         {
             get => defaultColor;
             set { defaultColor = value; this.Invalidate(); }
         }
-        public string CustomText
+        public Color HoverColor
         {
-            get => customText;
-            set { customText = value; this.Invalidate(); }
+            get => hoveColor;
+            set { hoveColor = value; this.Invalidate(); }
+        }
+        public Color ClickedColor
+        {
+            get => clickedColor;
+            set { clickedColor = value; this.Invalidate(); }
+        }
+        public string PanelText
+        {
+            get => panelText;
+            set { panelText = value; this.Invalidate(); }
         }
 
         // Methods
@@ -84,9 +97,22 @@ namespace Managment
 
                 using (SolidBrush textBrush = new SolidBrush(this.ForeColor))
                 {
-                    e.Graphics.DrawString(this.customText, this.Font, textBrush, this.ClientRectangle, stringFormat);
+                    e.Graphics.DrawString(this.panelText, this.Font, textBrush, this.ClientRectangle, stringFormat);
                 }
             }
+        }
+
+        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            DefaultColor = clickedColor;
+        }
+        private void Panel_MouseEnter(object sender, EventArgs e)
+        {
+            DefaultColor = hoveColor;
+        }
+        private void Panel_MouseLeave(object sender, EventArgs e)
+        {
+            DefaultColor = defaultColor;
         }
     }
 }

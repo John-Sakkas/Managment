@@ -85,23 +85,21 @@ namespace Managment
                 passwordText.CustomTextColor = Color.LightGray;
             }
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        private void customToolbox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1C77C3");
-        }
-        private void customToolbox1_MouseEnter(object sender, EventArgs e)
-        {
-            customToolbox1.DefaultColor = ColorTranslator.FromHtml("#63B7FF");
-        }
-        private void customToolbox1_MouseLeave(object sender, EventArgs e)
-        {
-            customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1E90FF");
-        }
+        //private void customToolbox1_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1C77C3");
+        //}
+        //private void customToolbox1_MouseEnter(object sender, EventArgs e)
+        //{
+        //    customToolbox1.DefaultColor = ColorTranslator.FromHtml("#63B7FF");
+        //}
+        //private void customToolbox1_MouseLeave(object sender, EventArgs e)
+        //{
+        //    customToolbox1.DefaultColor = ColorTranslator.FromHtml("#1E90FF");
+        //}
     }
 }
