@@ -9,7 +9,6 @@ namespace Managment
     {
         // Fields
         private int borderRadius = 30;
-        private float gradientAngle = 90F;
         private string customText = "Default Text"; // Default text
         private char customPasswordChar = '*'; // Default text
         private Color defaultColor = Color.DodgerBlue;
@@ -49,11 +48,6 @@ namespace Managment
         {
             get => borderRadius;
             set { borderRadius = value; this.Invalidate(); }
-        }
-        public float GradientAngle
-        {
-            get => gradientAngle;
-            set { gradientAngle = value; this.Invalidate(); }
         }
         public Color DefaultColor
         {

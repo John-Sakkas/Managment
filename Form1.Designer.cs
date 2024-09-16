@@ -102,13 +102,12 @@
             // 
             passwordText.BackColor = Color.Transparent;
             passwordText.BorderRadius = 30;
-            passwordText.CustomPasswordChar = '*';
+            passwordText.CustomPasswordChar = '\0';
             passwordText.CustomText = "Password";
             passwordText.CustomTextColor = Color.LightGray;
             passwordText.DefaultColor = Color.White;
             passwordText.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordText.ForeColor = Color.Black;
-            passwordText.GradientAngle = 90F;
             passwordText.Location = new Point(55, 111);
             passwordText.Name = "passwordText";
             passwordText.Size = new Size(236, 53);
@@ -126,7 +125,6 @@
             usernameText.DefaultColor = Color.White;
             usernameText.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usernameText.ForeColor = Color.Black;
-            usernameText.GradientAngle = 90F;
             usernameText.Location = new Point(55, 41);
             usernameText.Name = "usernameText";
             usernameText.Size = new Size(236, 53);
