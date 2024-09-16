@@ -54,7 +54,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.SkyBlue;
+            panel1.BackColor = Color.DodgerBlue;
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -138,11 +138,11 @@
             // 
             customToolbox1.BackColor = Color.Transparent;
             customToolbox1.BorderRadius = 30;
-            customToolbox1.ClickedColor = Color.DeepSkyBlue;
-            customToolbox1.DefaultColor = Color.SkyBlue;
+            customToolbox1.ClickedColor = Color.FromArgb(24, 116, 205);
+            customToolbox1.DefaultColor = Color.DodgerBlue;
             customToolbox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             customToolbox1.ForeColor = Color.Black;
-            customToolbox1.HoverColor = Color.LightSkyBlue;
+            customToolbox1.HoverColor = Color.FromArgb(28, 134, 238);
             customToolbox1.Location = new Point(95, 220);
             customToolbox1.Name = "customToolbox1";
             customToolbox1.PanelText = "Submit";
