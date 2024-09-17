@@ -36,6 +36,8 @@ namespace Managment
                         {
                             MessageBox.Show(reader["username"].ToString() + " Login Success");
                             errorMessage.Text = "";
+                            MainForm frm = new MainForm("JOHN");
+                            frm.Show();
                         }
                         else
                         {

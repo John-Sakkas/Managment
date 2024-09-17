@@ -53,3 +53,4 @@ F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\refint\Managment.dll
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.pdb
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.genruntimeconfig.cache
 F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\ref\Managment.dll
+F:\VisualStudioProjects\Managment\obj\Debug\net8.0-windows\Managment.MainForm.resources

@@ -64,6 +64,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -100,6 +101,7 @@
             // 
             // passwordText
             // 
+            passwordText.Anchor = AnchorStyles.None;
             passwordText.BackColor = Color.Transparent;
             passwordText.BorderRadius = 30;
             passwordText.CustomPasswordChar = '\0';
@@ -117,6 +119,7 @@
             // 
             // usernameText
             // 
+            usernameText.Anchor = AnchorStyles.None;
             usernameText.BackColor = Color.Transparent;
             usernameText.BorderRadius = 30;
             usernameText.CustomPasswordChar = '\0';
@@ -134,6 +137,7 @@
             // 
             // customToolbox1
             // 
+            customToolbox1.Anchor = AnchorStyles.None;
             customToolbox1.BackColor = Color.Transparent;
             customToolbox1.BorderRadius = 30;
             customToolbox1.ClickedColor = Color.FromArgb(24, 116, 205);
