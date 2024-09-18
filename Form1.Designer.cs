@@ -1,4 +1,6 @@
-﻿namespace Managment
+﻿using Managment.Custom;
+
+namespace Managment
 {
     partial class Form1
     {

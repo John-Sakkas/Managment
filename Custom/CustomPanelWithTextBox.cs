@@ -1,9 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
+﻿using System.Drawing.Drawing2D;
 
-namespace Managment
+namespace Managment.Custom
 {
     public class CustomPanelWithTextBox : Panel
     {
@@ -18,21 +15,21 @@ namespace Managment
         // Constructor
         public CustomPanelWithTextBox()
         {
-            this.BackColor = Color.White;
-            this.ForeColor = Color.Black;
-            this.Size = new Size(350, 200);
+            BackColor = Color.White;
+            ForeColor = Color.Black;
+            Size = new Size(350, 200);
 
             // Initialize and configure TextBox
             textBox = new TextBox
             {
-                ForeColor = this.ForeColor,
+                ForeColor = ForeColor,
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.None,
                 Text = customText, // Set default text
                 Multiline = false // Set to true if you want multiline text
             };
             textBox.TextChanged += TextBox_TextChanged; // Attach the event handler
-            this.Controls.Add(textBox);
+            Controls.Add(textBox);
 
             // Center the TextBox initially
             CenterTextBox();
@@ -47,12 +44,12 @@ namespace Managment
         public int BorderRadius
         {
             get => borderRadius;
-            set { borderRadius = value; this.Invalidate(); }
+            set { borderRadius = value; Invalidate(); }
         }
         public Color DefaultColor
         {
             get => defaultColor;
-            set { defaultColor = value; this.Invalidate(); }
+            set { defaultColor = value; Invalidate(); }
         }
 
         // Methods
@@ -76,16 +73,16 @@ namespace Managment
 
             // Gradient
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            using (SolidBrush brushCustom = new SolidBrush(this.DefaultColor)) // Use a single color
+            using (SolidBrush brushCustom = new SolidBrush(DefaultColor)) // Use a single color
             {
-                e.Graphics.FillRectangle(brushCustom, this.ClientRectangle); // Fill with one color
+                e.Graphics.FillRectangle(brushCustom, ClientRectangle); // Fill with one color
             }
 
             // BorderRadius
-            RectangleF rect = new RectangleF(0, 0, this.Width, this.Height);
+            RectangleF rect = new RectangleF(0, 0, Width, Height);
             using (GraphicsPath path = RoundButton(rect, borderRadius))
             {
-                this.Region = new Region(path); // Set the region of the control (rounded)
+                Region = new Region(path); // Set the region of the control (rounded)
             }
         }
 
@@ -101,7 +98,7 @@ namespace Managment
                 {
                     textBox.Text = customText;
                 }
-                this.Invalidate(); // Refresh the panel to show any changes
+                Invalidate(); // Refresh the panel to show any changes
             }
         }
         public Color CustomTextColor
@@ -114,7 +111,7 @@ namespace Managment
                 {
                     textBox.ForeColor = customTextColor;
                 }
-                this.Invalidate(); // Refresh the panel to show any changes
+                Invalidate(); // Refresh the panel to show any changes
             }
         }
 
@@ -128,7 +125,7 @@ namespace Managment
                 {
                     textBox.PasswordChar = customPasswordChar;
                 }
-                this.Invalidate(); // Refresh the panel to show any changes
+                Invalidate(); // Refresh the panel to show any changes
             }
         }
 
@@ -145,13 +142,13 @@ namespace Managment
             // Center the TextBox in the panel
             if (textBox != null)
             {
-                int textBoxWidth = this.Width - 20;
+                int textBoxWidth = Width - 20;
                 int textBoxHeight = 30;
                 textBox.Size = new Size(textBoxWidth, textBoxHeight);
                 textBox.TextAlign = HorizontalAlignment.Center;
                 textBox.Location = new Point(
-                    (this.Width - textBoxWidth) / 2,
-                    (this.Height - textBoxHeight) / 2
+                    (Width - textBoxWidth) / 2,
+                    (Height - textBoxHeight) / 2
                 );
             }
         }

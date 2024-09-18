@@ -1,10 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using System.Drawing.Drawing2D;
 
-namespace Managment
+namespace Managment.Custom
 {
     public class CustomPanel : Panel
     {
@@ -22,47 +18,47 @@ namespace Managment
         // Constructor
         public CustomPanel()
         {
-            this.BackColor = Color.White;
-            this.ForeColor = Color.Black;
-            this.Size = new Size(350, 200);
+            BackColor = Color.White;
+            ForeColor = Color.Black;
+            Size = new Size(350, 200);
 
-            this.MouseEnter += Panel_MouseEnter;
-            this.MouseLeave += Panel_MouseLeave;
-            this.MouseUp += Panel_MouseLeave;
-            this.MouseDown += Panel_MouseDown;
+            MouseEnter += Panel_MouseEnter;
+            MouseLeave += Panel_MouseLeave;
+            MouseUp += Panel_MouseLeave;
+            MouseDown += Panel_MouseDown;
         }
 
         // Properties
         public int BorderRadius
         {
             get => borderRadius;
-            set { borderRadius = value; this.Invalidate(); }
+            set { borderRadius = value; Invalidate(); }
         }
         public Color DefaultColor
         {
             get => defaultColor;
-            set 
-            { 
+            set
+            {
                 defaultColor = value;
                 if (panelBackColor.IsEmpty)
                     panelBackColor = defaultColor;
-                this.Invalidate(); 
+                Invalidate();
             }
         }
         public Color HoverColor
         {
             get => hoveColor;
-            set { hoveColor = value; this.Invalidate(); }
+            set { hoveColor = value; Invalidate(); }
         }
         public Color ClickedColor
         {
             get => clickedColor;
-            set { clickedColor = value; this.Invalidate(); }
+            set { clickedColor = value; Invalidate(); }
         }
         public string PanelText
         {
             get => panelText;
-            set { panelText = value; this.Invalidate(); }
+            set { panelText = value; Invalidate(); }
         }
 
         // Methods
@@ -88,14 +84,14 @@ namespace Managment
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             using (SolidBrush brushCustom = new SolidBrush(DefaultColor)) // Use a single color
             {
-                e.Graphics.FillRectangle(brushCustom, this.ClientRectangle); // Fill with one color
+                e.Graphics.FillRectangle(brushCustom, ClientRectangle); // Fill with one color
             }
 
             // BorderRadius
-            RectangleF rect = new RectangleF(0, 0, this.Width, this.Height);
+            RectangleF rect = new RectangleF(0, 0, Width, Height);
             using (GraphicsPath path = GetCustomPath(rect, borderRadius))
             {
-                this.Region = new Region(path); // Set the region of the control (rounded)
+                Region = new Region(path); // Set the region of the control (rounded)
             }
 
             // Draw centered text
@@ -104,9 +100,9 @@ namespace Managment
                 stringFormat.Alignment = StringAlignment.Center;
                 stringFormat.LineAlignment = StringAlignment.Center;
 
-                using (SolidBrush textBrush = new SolidBrush(this.ForeColor))
+                using (SolidBrush textBrush = new SolidBrush(ForeColor))
                 {
-                    e.Graphics.DrawString(this.panelText, this.Font, textBrush, this.ClientRectangle, stringFormat);
+                    e.Graphics.DrawString(panelText, Font, textBrush, ClientRectangle, stringFormat);
                 }
             }
         }
