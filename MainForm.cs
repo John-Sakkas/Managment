@@ -22,5 +22,34 @@ namespace Managment
             InitializeComponent();
             label2.Text = username;
         }
+
+        bool menuExpand = false;
+        private void itemMenuTransition_Tick(object sender, EventArgs e)
+        {
+            if (!menuExpand)
+            {
+                itemMenu.Height += 10;
+                if (itemMenu.Height >= 232)
+                {
+                    itemMenuTransition.Stop();
+                    menuExpand = true;
+                }
+            }
+            else
+            {
+                itemMenu.Height -= 10;
+                if (itemMenu.Height <= 50)
+                {
+                    itemMenuTransition.Stop();
+                    menuExpand = false;
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            itemMenuTransition.Start();
+        }
     }
 }
