@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label1 = new Label();
             label2 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            sideBarMenu = new FlowLayoutPanel();
             itemMenu = new FlowLayoutPanel();
             itemContainer = new Panel();
             itemOption = new Button();
@@ -45,13 +45,17 @@
             panel1 = new Panel();
             button1 = new Button();
             itemMenuTransition = new System.Windows.Forms.Timer(components);
-            flowLayoutPanel1.SuspendLayout();
+            panel2 = new Panel();
+            sideBarToggle = new Button();
+            sideBar = new System.Windows.Forms.Timer(components);
+            sideBarMenu.SuspendLayout();
             itemMenu.SuspendLayout();
             itemContainer.SuspendLayout();
             basesSubContainer.SuspendLayout();
             mattressSubContainer.SuspendLayout();
             fabricSubContainer.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -72,16 +76,16 @@
             label2.TabIndex = 1;
             label2.Text = "label2";
             // 
-            // flowLayoutPanel1
+            // sideBarMenu
             // 
-            flowLayoutPanel1.BackColor = Color.DodgerBlue;
-            flowLayoutPanel1.Controls.Add(itemMenu);
-            flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(228, 665);
-            flowLayoutPanel1.TabIndex = 2;
+            sideBarMenu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            sideBarMenu.BackColor = Color.DodgerBlue;
+            sideBarMenu.Controls.Add(itemMenu);
+            sideBarMenu.Controls.Add(panel1);
+            sideBarMenu.Location = new Point(0, 40);
+            sideBarMenu.Name = "sideBarMenu";
+            sideBarMenu.Size = new Size(191, 560);
+            sideBarMenu.TabIndex = 2;
             // 
             // itemMenu
             // 
@@ -116,7 +120,7 @@
             itemOption.ImageAlign = ContentAlignment.MiddleLeft;
             itemOption.Location = new Point(-9, -11);
             itemOption.Name = "itemOption";
-            itemOption.Padding = new Padding(20, 0, 0, 0);
+            itemOption.Padding = new Padding(15, 0, 0, 0);
             itemOption.Size = new Size(233, 73);
             itemOption.TabIndex = 0;
             itemOption.Text = "Items";
@@ -212,7 +216,7 @@
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(-9, -11);
             button1.Name = "button1";
-            button1.Padding = new Padding(20, 0, 0, 0);
+            button1.Padding = new Padding(15, 0, 0, 0);
             button1.Size = new Size(233, 73);
             button1.TabIndex = 0;
             button1.Text = "Logout";
@@ -223,23 +227,50 @@
             itemMenuTransition.Interval = 10;
             itemMenuTransition.Tick += itemMenuTransition_Tick;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(sideBarToggle);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(997, 41);
+            panel2.TabIndex = 3;
+            // 
+            // sideBarToggle
+            // 
+            sideBarToggle.Dock = DockStyle.Left;
+            sideBarToggle.Location = new Point(0, 0);
+            sideBarToggle.Name = "sideBarToggle";
+            sideBarToggle.Size = new Size(55, 41);
+            sideBarToggle.TabIndex = 0;
+            sideBarToggle.Text = "ToggleSideBar";
+            sideBarToggle.UseVisualStyleBackColor = true;
+            sideBarToggle.Click += sideBarToggle_Click;
+            // 
+            // sideBar
+            // 
+            sideBar.Interval = 10;
+            sideBar.Tick += sideBarTransition_Tick;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1063, 665);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(997, 595);
+            Controls.Add(panel2);
+            Controls.Add(sideBarMenu);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "MainForm";
             Text = "MainForm";
-            flowLayoutPanel1.ResumeLayout(false);
+            sideBarMenu.ResumeLayout(false);
             itemMenu.ResumeLayout(false);
             itemContainer.ResumeLayout(false);
             basesSubContainer.ResumeLayout(false);
             mattressSubContainer.ResumeLayout(false);
             fabricSubContainer.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -248,7 +279,7 @@
 
         private Label label1;
         private Label label2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel sideBarMenu;
         private FlowLayoutPanel itemMenu;
         private System.Windows.Forms.Timer itemMenuTransition;
         private Panel itemContainer;
@@ -261,5 +292,8 @@
         private Button fabricsSubOption;
         private Panel panel1;
         private Button button1;
+        private Panel panel2;
+        private Button sideBarToggle;
+        private System.Windows.Forms.Timer sideBar;
     }
 }

@@ -24,6 +24,8 @@ namespace Managment
         }
 
         bool menuExpand = false;
+        bool sideBarExpand = true;
+
         private void itemMenuTransition_Tick(object sender, EventArgs e)
         {
             if (!menuExpand)
@@ -44,12 +46,38 @@ namespace Managment
                     menuExpand = false;
                 }
             }
+        }
 
+        private void sideBarTransition_Tick(object sender, EventArgs e)
+        {
+            if (sideBarExpand)
+            {
+                sideBarMenu.Width -= 10;
+                if (sideBarMenu.Width <= 55)
+                {
+                    sideBar.Stop();
+                    sideBarExpand = false;
+                }
+            }
+            else
+            {
+                sideBarMenu.Width += 10;
+                if (sideBarMenu.Width >= 191)
+                {
+                    sideBar.Stop();
+                    sideBarExpand = true;
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             itemMenuTransition.Start();
+        }
+
+        private void sideBarToggle_Click(object sender, EventArgs e)
+        {
+            sideBar.Start();
         }
     }
 }
