@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             sideBarMenu = new FlowLayoutPanel();
@@ -48,6 +49,8 @@
             panel2 = new Panel();
             sideBarToggle = new Button();
             sideBar = new System.Windows.Forms.Timer(components);
+            panel3 = new Panel();
+            dataGridView1 = new DataGridView();
             sideBarMenu.SuspendLayout();
             itemMenu.SuspendLayout();
             itemContainer.SuspendLayout();
@@ -56,12 +59,14 @@
             fabricSubContainer.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(404, 171);
+            label1.Location = new Point(269, 9);
             label1.Name = "label1";
             label1.Size = new Size(57, 15);
             label1.TabIndex = 0;
@@ -70,7 +75,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(467, 171);
+            label2.Location = new Point(332, 9);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
             label2.TabIndex = 1;
@@ -84,7 +89,7 @@
             sideBarMenu.Controls.Add(panel1);
             sideBarMenu.Location = new Point(0, 40);
             sideBarMenu.Name = "sideBarMenu";
-            sideBarMenu.Size = new Size(191, 560);
+            sideBarMenu.Size = new Size(191, 513);
             sideBarMenu.TabIndex = 2;
             // 
             // itemMenu
@@ -96,7 +101,7 @@
             itemMenu.Controls.Add(fabricSubContainer);
             itemMenu.Location = new Point(3, 3);
             itemMenu.Name = "itemMenu";
-            itemMenu.Size = new Size(215, 49);
+            itemMenu.Size = new Size(215, 50);
             itemMenu.TabIndex = 5;
             // 
             // itemContainer
@@ -149,6 +154,7 @@
             basesSubOption.TabIndex = 0;
             basesSubOption.Text = "Bases";
             basesSubOption.UseVisualStyleBackColor = false;
+            basesSubOption.Click += basesSubOption_Click;
             // 
             // mattressSubContainer
             // 
@@ -172,6 +178,7 @@
             mattressSubOption.TabIndex = 0;
             mattressSubOption.Text = "Mattress";
             mattressSubOption.UseVisualStyleBackColor = false;
+            mattressSubOption.Click += mattressSubOption_Click;
             // 
             // fabricSubContainer
             // 
@@ -195,12 +202,13 @@
             fabricsSubOption.TabIndex = 0;
             fabricsSubOption.Text = "Fabrics";
             fabricsSubOption.UseVisualStyleBackColor = false;
+            fabricsSubOption.Click += fabricsSubOption_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.DodgerBlue;
             panel1.Controls.Add(button1);
-            panel1.Location = new Point(3, 58);
+            panel1.Location = new Point(3, 59);
             panel1.Name = "panel1";
             panel1.Size = new Size(215, 52);
             panel1.TabIndex = 6;
@@ -229,11 +237,13 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(label2);
             panel2.Controls.Add(sideBarToggle);
+            panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(997, 41);
+            panel2.Size = new Size(982, 41);
             panel2.TabIndex = 3;
             // 
             // sideBarToggle
@@ -252,15 +262,39 @@
             sideBar.Interval = 10;
             sideBar.Tick += sideBarTransition_Tick;
             // 
+            // panel3
+            // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.Controls.Add(dataGridView1);
+            panel3.Location = new Point(197, 47);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(773, 489);
+            panel3.TabIndex = 4;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridView1.Location = new Point(3, 86);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(767, 221);
+            dataGridView1.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(997, 595);
+            ClientSize = new Size(982, 548);
+            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(sideBarMenu);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Name = "MainForm";
             Text = "MainForm";
             sideBarMenu.ResumeLayout(false);
@@ -271,8 +305,10 @@
             fabricSubContainer.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -295,5 +331,7 @@
         private Panel panel2;
         private Button sideBarToggle;
         private System.Windows.Forms.Timer sideBar;
+        private Panel panel3;
+        private DataGridView dataGridView1;
     }
 }

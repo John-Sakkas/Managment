@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Managment
 {
     public partial class MainForm : Form
     {
+        bool menuExpand = false;
+        bool sideBarExpand = true;
+        SqlConnection conn = new SqlConnection("Data Source=John_S-PC;Initial Catalog=MANAGMENTDB;Integrated Security=True;Trust Server Certificate=True");
+
         public MainForm()
         {
             InitializeComponent();
@@ -22,10 +28,7 @@ namespace Managment
             InitializeComponent();
             label2.Text = username;
         }
-
-        bool menuExpand = false;
-        bool sideBarExpand = true;
-
+        
         private void itemMenuTransition_Tick(object sender, EventArgs e)
         {
             if (!menuExpand)
@@ -78,6 +81,49 @@ namespace Managment
         private void sideBarToggle_Click(object sender, EventArgs e)
         {
             sideBar.Start();
+        }
+
+        private async void FillDataGrid(string db_TableName)
+        {
+            try
+            {
+                string sqlQuery = $"SELECT * FROM {db_TableName}";
+
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
+                {
+                    await conn.OpenAsync(); // Open the connection asynchronously
+                    SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, conn);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    await conn.CloseAsync(); // Close the connection asynchronously
+                }
+            }
+        }
+
+        private void basesSubOption_Click(object sender, EventArgs e)
+        {
+            FillDataGrid("BASEDB");
+        }
+
+        private void mattressSubOption_Click(object sender, EventArgs e)
+        {
+            FillDataGrid("MATTRESSDB");
+        }
+
+        private void fabricsSubOption_Click(object sender, EventArgs e)
+        {
+            FillDataGrid("FABRICDB");
         }
     }
 }
