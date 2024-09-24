@@ -7,7 +7,7 @@ namespace Managment
     public partial class Form1 : Form
     {
         SqlConnection conn = new SqlConnection("Data Source=John_S-PC;Initial Catalog=MANAGMENTDB;Integrated Security=True;Trust Server Certificate=True");
-
+        Thread newFormThread;
         public Form1()
         {
             InitializeComponent();
@@ -34,10 +34,10 @@ namespace Managment
                     {
                         if (await reader.ReadAsync()) // Check if any rows are returned
                         {
-                            MessageBox.Show(reader["username"].ToString() + " Login Success");
                             errorMessage.Text = "";
-                            MainForm frm = new MainForm("JOHN");
-                            frm.Show();
+                            this.Hide(); // Hide the login form
+                            MainForm mainForm = new MainForm("John", this);
+                            mainForm.Show();
                         }
                         else
                         {
@@ -98,6 +98,16 @@ namespace Managment
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public void ClearValues()
+        {
+            usernameText.CustomText = "";
+            passwordText.CustomText = "";
+            usernameText_Leave(null, EventArgs.Empty);
+            passwordText_Leave(null, EventArgs.Empty);
+            errorMessage.Text = "";
+            usernameText.Focus();
         }
     }
 }

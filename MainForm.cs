@@ -17,18 +17,20 @@ namespace Managment
         bool menuExpand = false;
         bool sideBarExpand = true;
         SqlConnection conn = new SqlConnection("Data Source=John_S-PC;Initial Catalog=MANAGMENTDB;Integrated Security=True;Trust Server Certificate=True");
+        Form1 loginForm = null;
 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        public MainForm(String username)
+        public MainForm(String username, Form1 loginF)
         {
             InitializeComponent();
             label2.Text = username;
+            loginForm = loginF;
         }
-        
+
         private void itemMenuTransition_Tick(object sender, EventArgs e)
         {
             if (!menuExpand)
@@ -124,6 +126,22 @@ namespace Managment
         private void fabricsSubOption_Click(object sender, EventArgs e)
         {
             FillDataGrid("FABRICDB");
+        }
+
+        bool fromLogout = false;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fromLogout = true;
+            Close();
+            loginForm.Show();
+            loginForm.ClearValues();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!fromLogout)
+                loginForm.Close();
         }
     }
 }
