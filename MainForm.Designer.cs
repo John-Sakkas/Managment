@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             sideBarMenu = new FlowLayoutPanel();
@@ -50,6 +50,24 @@
             sideBarToggle = new Button();
             sideBar = new System.Windows.Forms.Timer(components);
             panel3 = new Panel();
+            fabricPanel = new Panel();
+            label8 = new Label();
+            fabricName = new TextBox();
+            label9 = new Label();
+            fabricMeter = new TextBox();
+            base_mattressPanel = new Panel();
+            label3 = new Label();
+            itemName = new TextBox();
+            label4 = new Label();
+            itemDimensionX = new TextBox();
+            label5 = new Label();
+            itemQuantity = new TextBox();
+            itemDimensionY = new TextBox();
+            label6 = new Label();
+            clearSelection = new Button();
+            deleteButton = new Button();
+            editButton = new Button();
+            label7 = new Label();
             dataGridView1 = new DataGridView();
             sideBarMenu.SuspendLayout();
             itemMenu.SuspendLayout();
@@ -60,6 +78,8 @@
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            fabricPanel.SuspendLayout();
+            base_mattressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -89,7 +109,7 @@
             sideBarMenu.Controls.Add(panel1);
             sideBarMenu.Location = new Point(0, 40);
             sideBarMenu.Name = "sideBarMenu";
-            sideBarMenu.Size = new Size(191, 513);
+            sideBarMenu.Size = new Size(191, 576);
             sideBarMenu.TabIndex = 2;
             // 
             // itemMenu
@@ -244,7 +264,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(982, 41);
+            panel2.Size = new Size(1018, 41);
             panel2.TabIndex = 3;
             // 
             // sideBarToggle
@@ -266,33 +286,212 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.Controls.Add(fabricPanel);
+            panel3.Controls.Add(base_mattressPanel);
+            panel3.Controls.Add(clearSelection);
+            panel3.Controls.Add(deleteButton);
+            panel3.Controls.Add(editButton);
+            panel3.Controls.Add(label7);
             panel3.Controls.Add(dataGridView1);
             panel3.Location = new Point(197, 47);
             panel3.Name = "panel3";
-            panel3.Size = new Size(773, 489);
+            panel3.Size = new Size(809, 552);
             panel3.TabIndex = 4;
+            // 
+            // fabricPanel
+            // 
+            fabricPanel.Controls.Add(label8);
+            fabricPanel.Controls.Add(fabricName);
+            fabricPanel.Controls.Add(label9);
+            fabricPanel.Controls.Add(fabricMeter);
+            fabricPanel.Location = new Point(109, 344);
+            fabricPanel.Name = "fabricPanel";
+            fabricPanel.Size = new Size(305, 156);
+            fabricPanel.TabIndex = 14;
+            fabricPanel.Visible = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(3, 25);
+            label8.Name = "label8";
+            label8.Size = new Size(94, 21);
+            label8.TabIndex = 1;
+            label8.Text = "Item Name :";
+            // 
+            // fabricName
+            // 
+            fabricName.Location = new Point(143, 23);
+            fabricName.Name = "fabricName";
+            fabricName.Size = new Size(143, 23);
+            fabricName.TabIndex = 2;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(3, 68);
+            label9.Name = "label9";
+            label9.Size = new Size(100, 21);
+            label9.TabIndex = 3;
+            label9.Text = "Item Meters :";
+            // 
+            // fabricMeter
+            // 
+            fabricMeter.Location = new Point(143, 68);
+            fabricMeter.Name = "fabricMeter";
+            fabricMeter.Size = new Size(57, 23);
+            fabricMeter.TabIndex = 4;
+            // 
+            // base_mattressPanel
+            // 
+            base_mattressPanel.Controls.Add(label3);
+            base_mattressPanel.Controls.Add(itemName);
+            base_mattressPanel.Controls.Add(label4);
+            base_mattressPanel.Controls.Add(itemDimensionX);
+            base_mattressPanel.Controls.Add(label5);
+            base_mattressPanel.Controls.Add(itemQuantity);
+            base_mattressPanel.Controls.Add(itemDimensionY);
+            base_mattressPanel.Controls.Add(label6);
+            base_mattressPanel.Location = new Point(109, 344);
+            base_mattressPanel.Name = "base_mattressPanel";
+            base_mattressPanel.Size = new Size(305, 156);
+            base_mattressPanel.TabIndex = 13;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(3, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(94, 21);
+            label3.TabIndex = 1;
+            label3.Text = "Item Name :";
+            // 
+            // itemName
+            // 
+            itemName.Location = new Point(143, 23);
+            itemName.Name = "itemName";
+            itemName.Size = new Size(143, 23);
+            itemName.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(3, 68);
+            label4.Name = "label4";
+            label4.Size = new Size(134, 21);
+            label4.TabIndex = 3;
+            label4.Text = "Item Dimensions :";
+            // 
+            // itemDimensionX
+            // 
+            itemDimensionX.Location = new Point(143, 68);
+            itemDimensionX.Name = "itemDimensionX";
+            itemDimensionX.Size = new Size(57, 23);
+            itemDimensionX.TabIndex = 4;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(206, 70);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 21);
+            label5.TabIndex = 5;
+            label5.Text = "x";
+            // 
+            // itemQuantity
+            // 
+            itemQuantity.Location = new Point(143, 109);
+            itemQuantity.Name = "itemQuantity";
+            itemQuantity.Size = new Size(143, 23);
+            itemQuantity.TabIndex = 8;
+            // 
+            // itemDimensionY
+            // 
+            itemDimensionY.Location = new Point(229, 68);
+            itemDimensionY.Name = "itemDimensionY";
+            itemDimensionY.Size = new Size(57, 23);
+            itemDimensionY.TabIndex = 6;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(3, 111);
+            label6.Name = "label6";
+            label6.Size = new Size(112, 21);
+            label6.TabIndex = 7;
+            label6.Text = "Item Quantity :";
+            // 
+            // clearSelection
+            // 
+            clearSelection.Location = new Point(705, 6);
+            clearSelection.Name = "clearSelection";
+            clearSelection.Size = new Size(101, 34);
+            clearSelection.TabIndex = 12;
+            clearSelection.Text = "Clear Selection";
+            clearSelection.UseVisualStyleBackColor = true;
+            clearSelection.Click += clearSelection_Click;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Enabled = false;
+            deleteButton.Location = new Point(561, 392);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(101, 48);
+            deleteButton.TabIndex = 11;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
+            // 
+            // editButton
+            // 
+            editButton.Enabled = false;
+            editButton.Location = new Point(442, 392);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(101, 48);
+            editButton.TabIndex = 10;
+            editButton.Text = "Edit";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += EditButton_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(345, 297);
+            label7.Name = "label7";
+            label7.Size = new Size(87, 25);
+            label7.TabIndex = 9;
+            label7.Text = "Item Info";
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.Location = new Point(3, 86);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.Location = new Point(6, 46);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(767, 221);
+            dataGridView1.Size = new Size(803, 249);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellContentClick;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 548);
+            ClientSize = new Size(1018, 611);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(sideBarMenu);
@@ -309,6 +508,11 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            fabricPanel.ResumeLayout(false);
+            fabricPanel.PerformLayout();
+            base_mattressPanel.ResumeLayout(false);
+            base_mattressPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -335,5 +539,23 @@
         private System.Windows.Forms.Timer sideBar;
         private Panel panel3;
         private DataGridView dataGridView1;
+        private Label label3;
+        private TextBox itemName;
+        private Button deleteButton;
+        private Button editButton;
+        private Label label7;
+        private TextBox itemQuantity;
+        private Label label6;
+        private TextBox itemDimensionY;
+        private Label label5;
+        private TextBox itemDimensionX;
+        private Label label4;
+        private Button clearSelection;
+        private Panel fabricPanel;
+        private Label label8;
+        private TextBox fabricName;
+        private Label label9;
+        private TextBox fabricMeter;
+        private Panel base_mattressPanel;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,11 @@ namespace Managment
         bool menuExpand = false;
         bool sideBarExpand = true;
         SqlConnection conn = new SqlConnection("Data Source=John_S-PC;Initial Catalog=MANAGMENTDB;Integrated Security=True;Trust Server Certificate=True");
-        Form1 loginForm = null;
+        Form1 loginForm;
+        private int rowIndex = 0;
+        private int rowId = 0;
+        string tableName;
+
 
         public MainForm()
         {
@@ -99,6 +104,7 @@ namespace Managment
                     adapter.Fill(dt);
                     dataGridView1.DataSource = dt;
                 }
+                tableName = db_TableName;
             }
             catch (Exception ex)
             {
@@ -115,16 +121,22 @@ namespace Managment
 
         private void basesSubOption_Click(object sender, EventArgs e)
         {
+            base_mattressPanel.Visible = true;
+            fabricPanel.Visible = false;
             FillDataGrid("BASEDB");
         }
 
         private void mattressSubOption_Click(object sender, EventArgs e)
         {
+            base_mattressPanel.Visible = true;
+            fabricPanel.Visible = false;
             FillDataGrid("MATTRESSDB");
         }
 
         private void fabricsSubOption_Click(object sender, EventArgs e)
         {
+            base_mattressPanel.Visible = false;
+            fabricPanel.Visible = true;
             FillDataGrid("FABRICDB");
         }
 
@@ -143,5 +155,139 @@ namespace Managment
             if (!fromLogout)
                 loginForm.Close();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Ensure the click is within the grid and not on header cells
+            if (e.RowIndex >= 0)
+            {
+                // Get the entire row
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                if (tableName == "BASEDB" || tableName == "MATTRESSDB")
+                {
+                    rowIndex = e.RowIndex;
+                    rowId = (int)row.Cells[0].Value;
+                    itemName.Text = row.Cells[1].Value.ToString();
+                    itemDimensionX.Text = row.Cells[2].Value.ToString();
+                    itemDimensionY.Text = row.Cells[3].Value.ToString();
+                    itemQuantity.Text = row.Cells[4].Value.ToString();
+                    editButton.Enabled = true;
+                    deleteButton.Enabled = true;
+                }
+                else
+                {
+                    rowIndex = e.RowIndex;
+                    rowId = (int)row.Cells[0].Value;
+                    fabricName.Text = row.Cells[1].Value.ToString();
+                    fabricMeter.Text = row.Cells[2].Value.ToString();
+                    editButton.Enabled = true;
+                    deleteButton.Enabled = true;
+                }
+            }
+        }
+
+        private async void EditButton_Click(object sender, EventArgs e)
+        {
+            if (rowIndex < 0) return;
+            try
+            {
+                string sqlQuery = "";
+
+                if (tableName == "BASEDB")
+                    sqlQuery = $"UPDATE {tableName} SET BASENAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
+                        ", QUANTITY = @newQuantity WHERE Id = @id";
+                else if(tableName == "MATTRESSDB")
+                    sqlQuery = $"UPDATE {tableName} SET MATTRESSNAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
+                        ", QUANTITY = @newQuantity WHERE Id = @id";
+                else
+                    sqlQuery = $"UPDATE {tableName} SET FABRICNAME = @newName, METERS = @newMeters WHERE Id = @id";
+
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
+                {
+                    await conn.OpenAsync(); // Open the connection asynchronously
+                    if (tableName == "BASEDB" || tableName == "MATTRESSDB")
+                    {
+
+                        cmd.Parameters.AddWithValue("@newName", itemName.Text);
+                        cmd.Parameters.AddWithValue("@newX", itemDimensionX.Text);
+                        cmd.Parameters.AddWithValue("@newy", itemDimensionY.Text);
+                        cmd.Parameters.AddWithValue("@newQuantity", itemQuantity.Text);
+                        cmd.Parameters.AddWithValue("@id", rowId);
+                    }
+                    else 
+                    {
+                        cmd.Parameters.AddWithValue("@newName", fabricName.Text);
+                        cmd.Parameters.AddWithValue("@newMeters", fabricMeter.Text);
+                        cmd.Parameters.AddWithValue("@id", rowId);
+                    }
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    await conn.CloseAsync(); // Close the connection asynchronously
+                }
+                FillDataGrid(tableName);
+                ClearValues();
+            }
+        }
+
+        private void clearSelection_Click(object sender, EventArgs e)
+        {
+            ClearValues();
+        }
+
+        private void ClearValues()
+        {
+            rowIndex = 0;
+            rowId = 0;
+            itemName.Text = "";
+            itemDimensionX.Text = "";
+            itemDimensionY.Text = "";
+            itemQuantity.Text = "";
+            fabricName.Text = "";
+            fabricMeter.Text = "";
+            editButton.Enabled = false;
+            deleteButton.Enabled = false;
+        }
+
+        private async void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (rowIndex < 0) return;
+            try
+            {
+                string sqlQuery = $"DELETE FROM {tableName} WHERE Id = @id";
+
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
+                {
+                    await conn.OpenAsync(); // Open the connection asynchronously
+                    cmd.Parameters.AddWithValue("@id", rowId); // Assuming rowIndex + 1 corresponds to the ID to be deleted
+
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    await conn.CloseAsync(); // Close the connection asynchronously
+                }
+                FillDataGrid(tableName);
+                ClearValues();
+            }
+        }
     }
-}
+} 
