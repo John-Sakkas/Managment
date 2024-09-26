@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             sideBarMenu = new FlowLayoutPanel();
@@ -50,6 +50,7 @@
             sideBarToggle = new Button();
             sideBar = new System.Windows.Forms.Timer(components);
             panel3 = new Panel();
+            newItem = new Button();
             fabricPanel = new Panel();
             label8 = new Label();
             fabricName = new TextBox();
@@ -286,6 +287,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.Controls.Add(newItem);
             panel3.Controls.Add(fabricPanel);
             panel3.Controls.Add(base_mattressPanel);
             panel3.Controls.Add(clearSelection);
@@ -298,13 +300,23 @@
             panel3.Size = new Size(809, 552);
             panel3.TabIndex = 4;
             // 
+            // newItem
+            // 
+            newItem.Location = new Point(447, 355);
+            newItem.Name = "newItem";
+            newItem.Size = new Size(101, 48);
+            newItem.TabIndex = 15;
+            newItem.Text = "New";
+            newItem.UseVisualStyleBackColor = true;
+            newItem.Click += newItem_Click;
+            // 
             // fabricPanel
             // 
             fabricPanel.Controls.Add(label8);
             fabricPanel.Controls.Add(fabricName);
             fabricPanel.Controls.Add(label9);
             fabricPanel.Controls.Add(fabricMeter);
-            fabricPanel.Location = new Point(109, 344);
+            fabricPanel.Location = new Point(114, 355);
             fabricPanel.Name = "fabricPanel";
             fabricPanel.Size = new Size(305, 156);
             fabricPanel.TabIndex = 14;
@@ -354,7 +366,7 @@
             base_mattressPanel.Controls.Add(itemQuantity);
             base_mattressPanel.Controls.Add(itemDimensionY);
             base_mattressPanel.Controls.Add(label6);
-            base_mattressPanel.Location = new Point(109, 344);
+            base_mattressPanel.Location = new Point(114, 355);
             base_mattressPanel.Name = "base_mattressPanel";
             base_mattressPanel.Size = new Size(305, 156);
             base_mattressPanel.TabIndex = 13;
@@ -440,7 +452,7 @@
             // deleteButton
             // 
             deleteButton.Enabled = false;
-            deleteButton.Location = new Point(561, 392);
+            deleteButton.Location = new Point(447, 463);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(101, 48);
             deleteButton.TabIndex = 11;
@@ -451,7 +463,7 @@
             // editButton
             // 
             editButton.Enabled = false;
-            editButton.Location = new Point(442, 392);
+            editButton.Location = new Point(447, 409);
             editButton.Name = "editButton";
             editButton.Size = new Size(101, 48);
             editButton.TabIndex = 10;
@@ -463,7 +475,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(345, 297);
+            label7.Location = new Point(350, 308);
             label7.Name = "label7";
             label7.Size = new Size(87, 25);
             label7.TabIndex = 9;
@@ -473,14 +485,14 @@
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.Location = new Point(6, 46);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(803, 249);
@@ -557,5 +569,6 @@
         private Label label9;
         private TextBox fabricMeter;
         private Panel base_mattressPanel;
+        private Button newItem;
     }
 }

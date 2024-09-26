@@ -49,6 +49,9 @@ namespace Managment
             }
             else
             {
+                dataGridView1.DataSource = null;
+                ClearValues();
+
                 itemMenu.Height -= 10;
                 if (itemMenu.Height <= 50)
                 {
@@ -92,6 +95,7 @@ namespace Managment
 
         private async void FillDataGrid(string db_TableName)
         {
+            ClearValues();
             try
             {
                 string sqlQuery = $"SELECT * FROM {db_TableName}";
@@ -105,6 +109,7 @@ namespace Managment
                     dataGridView1.DataSource = dt;
                 }
                 tableName = db_TableName;
+                tableRows = dataGridView1.RowCount - 1;
             }
             catch (Exception ex)
             {
@@ -174,6 +179,7 @@ namespace Managment
                     itemQuantity.Text = row.Cells[4].Value.ToString();
                     editButton.Enabled = true;
                     deleteButton.Enabled = true;
+                    newItem.Enabled = false;
                 }
                 else
                 {
@@ -183,6 +189,7 @@ namespace Managment
                     fabricMeter.Text = row.Cells[2].Value.ToString();
                     editButton.Enabled = true;
                     deleteButton.Enabled = true;
+                    newItem.Enabled = false;
                 }
             }
         }
@@ -197,7 +204,7 @@ namespace Managment
                 if (tableName == "BASEDB")
                     sqlQuery = $"UPDATE {tableName} SET BASENAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
                         ", QUANTITY = @newQuantity WHERE Id = @id";
-                else if(tableName == "MATTRESSDB")
+                else if (tableName == "MATTRESSDB")
                     sqlQuery = $"UPDATE {tableName} SET MATTRESSNAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
                         ", QUANTITY = @newQuantity WHERE Id = @id";
                 else
@@ -215,7 +222,7 @@ namespace Managment
                         cmd.Parameters.AddWithValue("@newQuantity", itemQuantity.Text);
                         cmd.Parameters.AddWithValue("@id", rowId);
                     }
-                    else 
+                    else
                     {
                         cmd.Parameters.AddWithValue("@newName", fabricName.Text);
                         cmd.Parameters.AddWithValue("@newMeters", fabricMeter.Text);
@@ -257,6 +264,8 @@ namespace Managment
             fabricMeter.Text = "";
             editButton.Enabled = false;
             deleteButton.Enabled = false;
+            newItem.Enabled = true;
+
         }
 
         private async void deleteButton_Click(object sender, EventArgs e)
@@ -274,6 +283,61 @@ namespace Managment
                     cmd.ExecuteNonQuery();
                 }
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    await conn.CloseAsync(); // Close the connection asynchronously
+                }
+                FillDataGrid(tableName);
+                ClearValues();
+            }
+        }
+
+
+        private int tableRows = 0;
+        private async void newItem_Click(object sender, EventArgs e)
+        {
+            if (rowIndex > 0) return;
+
+            try
+            {
+                string sqlQuery = "";
+                tableRows++;
+                if (tableName == "BASEDB")
+                    sqlQuery = $"INSERT INTO {tableName} (ID, BASENAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
+                          "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
+                else if (tableName == "MATTRESSDB")
+                    sqlQuery = $"INSERT INTO {tableName} (ID, MATTRESSNAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
+                          "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
+                else
+                    sqlQuery = $"INSERT INTO {tableName} (ID, FABRICNAME, METERS) VALUES (@newId, @newName, @newMeters)";
+
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
+                {
+                    await conn.OpenAsync(); // Open the connection asynchronously
+                    if (tableName == "BASEDB" || tableName == "MATTRESSDB")
+                    {
+                        cmd.Parameters.AddWithValue("@newId", tableRows);
+                        cmd.Parameters.AddWithValue("@newName", itemName.Text);
+                        cmd.Parameters.AddWithValue("@newX", itemDimensionX.Text);
+                        cmd.Parameters.AddWithValue("@newy", itemDimensionY.Text);
+                        cmd.Parameters.AddWithValue("@newQuantity", itemQuantity.Text);                        
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@newId", tableRows);
+                        cmd.Parameters.AddWithValue("@newName", fabricName.Text);
+                        cmd.Parameters.AddWithValue("@newMeters", fabricMeter.Text);
+                    }
+
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch (Exception ex)
             {
