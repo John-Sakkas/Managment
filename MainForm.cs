@@ -17,11 +17,13 @@ namespace Managment
     {
         bool menuExpand = false;
         bool sideBarExpand = true;
-        SqlConnection conn = new SqlConnection("Data Source=John_S-PC;Initial Catalog=MANAGMENTDB;Integrated Security=True;Trust Server Certificate=True");
+        SqlConnection conn = new SqlConnection(StaticVariables.connectionString);
         Form1 loginForm;
         private int rowIndex = 0;
         private int rowId = 0;
         string tableName;
+        private int tableRows = 0;
+        bool fromLogout = false;
 
 
         public MainForm()
@@ -40,6 +42,8 @@ namespace Managment
         {
             if (!menuExpand)
             {
+                itemPanel.Visible = true;
+
                 itemMenu.Height += 10;
                 if (itemMenu.Height >= 232)
                 {
@@ -51,6 +55,7 @@ namespace Managment
             {
                 dataGridView1.DataSource = null;
                 ClearValues();
+                itemPanel.Visible = false;
 
                 itemMenu.Height -= 10;
                 if (itemMenu.Height <= 50)
@@ -144,8 +149,6 @@ namespace Managment
             fabricPanel.Visible = true;
             FillDataGrid("FABRICDB");
         }
-
-        bool fromLogout = false;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -299,8 +302,6 @@ namespace Managment
             }
         }
 
-
-        private int tableRows = 0;
         private async void newItem_Click(object sender, EventArgs e)
         {
             if (rowIndex > 0) return;

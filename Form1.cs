@@ -6,7 +6,7 @@ namespace Managment
 {
     public partial class Form1 : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=John_S-PC;Initial Catalog=MANAGMENTDB;Integrated Security=True;Trust Server Certificate=True");
+        SqlConnection conn = new SqlConnection(StaticVariables.connectionString);
         Thread newFormThread;
         public Form1()
         {
