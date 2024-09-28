@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             sideBarMenu = new FlowLayoutPanel();
@@ -55,19 +55,19 @@
             deleteButton = new Button();
             clearSelection = new Button();
             base_mattressPanel = new Panel();
-            label6 = new Label();
-            itemDimensionY = new TextBox();
-            itemQuantity = new TextBox();
-            label5 = new Label();
-            itemDimensionX = new TextBox();
-            label4 = new Label();
-            itemName = new TextBox();
             label3 = new Label();
+            itemName = new TextBox();
+            label4 = new Label();
+            itemDimensionX = new TextBox();
+            label5 = new Label();
+            itemQuantity = new TextBox();
+            itemDimensionY = new TextBox();
+            label6 = new Label();
             fabricPanel = new Panel();
-            fabricMeter = new TextBox();
-            label9 = new Label();
-            fabricName = new TextBox();
             label8 = new Label();
+            fabricName = new TextBox();
+            label9 = new Label();
+            fabricMeter = new TextBox();
             newItem = new Button();
             itemPanel = new Panel();
             sideBarMenu.SuspendLayout();
@@ -286,14 +286,14 @@
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.Location = new Point(6, 46);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(803, 249);
@@ -313,9 +313,9 @@
             // editButton
             // 
             editButton.Enabled = false;
-            editButton.Location = new Point(447, 409);
+            editButton.Location = new Point(460, 409);
             editButton.Name = "editButton";
-            editButton.Size = new Size(101, 48);
+            editButton.Size = new Size(101, 46);
             editButton.TabIndex = 10;
             editButton.Text = "Edit";
             editButton.UseVisualStyleBackColor = true;
@@ -324,9 +324,9 @@
             // deleteButton
             // 
             deleteButton.Enabled = false;
-            deleteButton.Location = new Point(447, 463);
+            deleteButton.Location = new Point(460, 463);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(101, 48);
+            deleteButton.Size = new Size(101, 46);
             deleteButton.TabIndex = 11;
             deleteButton.Text = "Delete";
             deleteButton.UseVisualStyleBackColor = true;
@@ -357,46 +357,22 @@
             base_mattressPanel.Size = new Size(305, 156);
             base_mattressPanel.TabIndex = 13;
             // 
-            // label6
+            // label3
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(3, 111);
-            label6.Name = "label6";
-            label6.Size = new Size(112, 21);
-            label6.TabIndex = 7;
-            label6.Text = "Item Quantity :";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(3, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(94, 21);
+            label3.TabIndex = 1;
+            label3.Text = "Item Name :";
             // 
-            // itemDimensionY
+            // itemName
             // 
-            itemDimensionY.Location = new Point(229, 68);
-            itemDimensionY.Name = "itemDimensionY";
-            itemDimensionY.Size = new Size(57, 23);
-            itemDimensionY.TabIndex = 6;
-            // 
-            // itemQuantity
-            // 
-            itemQuantity.Location = new Point(143, 109);
-            itemQuantity.Name = "itemQuantity";
-            itemQuantity.Size = new Size(143, 23);
-            itemQuantity.TabIndex = 8;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(206, 70);
-            label5.Name = "label5";
-            label5.Size = new Size(17, 21);
-            label5.TabIndex = 5;
-            label5.Text = "x";
-            // 
-            // itemDimensionX
-            // 
-            itemDimensionX.Location = new Point(143, 68);
-            itemDimensionX.Name = "itemDimensionX";
-            itemDimensionX.Size = new Size(57, 23);
-            itemDimensionX.TabIndex = 4;
+            itemName.Location = new Point(143, 23);
+            itemName.Name = "itemName";
+            itemName.Size = new Size(143, 23);
+            itemName.TabIndex = 2;
             // 
             // label4
             // 
@@ -408,22 +384,46 @@
             label4.TabIndex = 3;
             label4.Text = "Item Dimensions :";
             // 
-            // itemName
+            // itemDimensionX
             // 
-            itemName.Location = new Point(143, 23);
-            itemName.Name = "itemName";
-            itemName.Size = new Size(143, 23);
-            itemName.TabIndex = 2;
+            itemDimensionX.Location = new Point(143, 68);
+            itemDimensionX.Name = "itemDimensionX";
+            itemDimensionX.Size = new Size(57, 23);
+            itemDimensionX.TabIndex = 4;
             // 
-            // label3
+            // label5
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 25);
-            label3.Name = "label3";
-            label3.Size = new Size(94, 21);
-            label3.TabIndex = 1;
-            label3.Text = "Item Name :";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(206, 70);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 21);
+            label5.TabIndex = 5;
+            label5.Text = "x";
+            // 
+            // itemQuantity
+            // 
+            itemQuantity.Location = new Point(143, 109);
+            itemQuantity.Name = "itemQuantity";
+            itemQuantity.Size = new Size(143, 23);
+            itemQuantity.TabIndex = 8;
+            // 
+            // itemDimensionY
+            // 
+            itemDimensionY.Location = new Point(229, 68);
+            itemDimensionY.Name = "itemDimensionY";
+            itemDimensionY.Size = new Size(57, 23);
+            itemDimensionY.TabIndex = 6;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(3, 111);
+            label6.Name = "label6";
+            label6.Size = new Size(112, 21);
+            label6.TabIndex = 7;
+            label6.Text = "Item Quantity :";
             // 
             // fabricPanel
             // 
@@ -437,12 +437,22 @@
             fabricPanel.TabIndex = 14;
             fabricPanel.Visible = false;
             // 
-            // fabricMeter
+            // label8
             // 
-            fabricMeter.Location = new Point(143, 68);
-            fabricMeter.Name = "fabricMeter";
-            fabricMeter.Size = new Size(57, 23);
-            fabricMeter.TabIndex = 4;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(3, 25);
+            label8.Name = "label8";
+            label8.Size = new Size(94, 21);
+            label8.TabIndex = 1;
+            label8.Text = "Item Name :";
+            // 
+            // fabricName
+            // 
+            fabricName.Location = new Point(143, 23);
+            fabricName.Name = "fabricName";
+            fabricName.Size = new Size(143, 23);
+            fabricName.TabIndex = 2;
             // 
             // label9
             // 
@@ -454,28 +464,18 @@
             label9.TabIndex = 3;
             label9.Text = "Item Meters :";
             // 
-            // fabricName
+            // fabricMeter
             // 
-            fabricName.Location = new Point(143, 23);
-            fabricName.Name = "fabricName";
-            fabricName.Size = new Size(143, 23);
-            fabricName.TabIndex = 2;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(3, 25);
-            label8.Name = "label8";
-            label8.Size = new Size(94, 21);
-            label8.TabIndex = 1;
-            label8.Text = "Item Name :";
+            fabricMeter.Location = new Point(143, 68);
+            fabricMeter.Name = "fabricMeter";
+            fabricMeter.Size = new Size(57, 23);
+            fabricMeter.TabIndex = 4;
             // 
             // newItem
             // 
-            newItem.Location = new Point(447, 355);
+            newItem.Location = new Point(460, 355);
             newItem.Name = "newItem";
-            newItem.Size = new Size(101, 48);
+            newItem.Size = new Size(101, 46);
             newItem.TabIndex = 15;
             newItem.Text = "New";
             newItem.UseVisualStyleBackColor = true;
