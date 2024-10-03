@@ -506,8 +506,8 @@
             Controls.Add(itemPanel);
             Controls.Add(panel2);
             Controls.Add(label1);
-            Controls.Add(sideBarMenu);
             Controls.Add(label2);
+            Controls.Add(sideBarMenu);
             Name = "MainForm";
             Text = "MainForm";
             FormClosed += MainForm_FormClosed;
