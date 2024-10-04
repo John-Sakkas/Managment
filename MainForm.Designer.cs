@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label1 = new Label();
             label2 = new Label();
             sideBarMenu = new FlowLayoutPanel();
@@ -70,6 +70,7 @@
             fabricMeter = new TextBox();
             newItem = new Button();
             itemPanel = new Panel();
+            pictureBox1 = new PictureBox();
             sideBarMenu.SuspendLayout();
             itemMenu.SuspendLayout();
             itemContainer.SuspendLayout();
@@ -82,6 +83,7 @@
             base_mattressPanel.SuspendLayout();
             fabricPanel.SuspendLayout();
             itemPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -128,6 +130,7 @@
             // itemContainer
             // 
             itemContainer.BackColor = Color.DodgerBlue;
+            itemContainer.Controls.Add(pictureBox1);
             itemContainer.Controls.Add(itemOption);
             itemContainer.Location = new Point(0, 0);
             itemContainer.Margin = new Padding(0);
@@ -147,7 +150,7 @@
             itemOption.Location = new Point(-9, -11);
             itemOption.Name = "itemOption";
             itemOption.Padding = new Padding(15, 0, 0, 0);
-            itemOption.Size = new Size(233, 73);
+            itemOption.Size = new Size(203, 73);
             itemOption.TabIndex = 0;
             itemOption.Text = "Items";
             itemOption.UseVisualStyleBackColor = false;
@@ -498,6 +501,18 @@
             itemPanel.TabIndex = 4;
             itemPanel.Visible = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(147, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(30, 31);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -514,6 +529,7 @@
             sideBarMenu.ResumeLayout(false);
             itemMenu.ResumeLayout(false);
             itemContainer.ResumeLayout(false);
+            itemContainer.PerformLayout();
             basesSubContainer.ResumeLayout(false);
             mattressSubContainer.ResumeLayout(false);
             fabricSubContainer.ResumeLayout(false);
@@ -526,6 +542,7 @@
             fabricPanel.PerformLayout();
             itemPanel.ResumeLayout(false);
             itemPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -571,5 +588,6 @@
         private TextBox fabricMeter;
         private Button newItem;
         private Panel itemPanel;
+        private PictureBox pictureBox1;
     }
 }
