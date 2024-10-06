@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label1 = new Label();
             label2 = new Label();
             sideBarMenu = new FlowLayoutPanel();
             itemMenu = new FlowLayoutPanel();
             itemContainer = new Panel();
+            pictureBox1 = new PictureBox();
             itemOption = new Button();
             basesSubContainer = new Panel();
             basesSubOption = new Button();
@@ -70,10 +71,12 @@
             fabricMeter = new TextBox();
             newItem = new Button();
             itemPanel = new Panel();
-            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             sideBarMenu.SuspendLayout();
             itemMenu.SuspendLayout();
             itemContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             basesSubContainer.SuspendLayout();
             mattressSubContainer.SuspendLayout();
             fabricSubContainer.SuspendLayout();
@@ -83,7 +86,8 @@
             base_mattressPanel.SuspendLayout();
             fabricPanel.SuspendLayout();
             itemPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -130,6 +134,7 @@
             // itemContainer
             // 
             itemContainer.BackColor = Color.DodgerBlue;
+            itemContainer.Controls.Add(pictureBox3);
             itemContainer.Controls.Add(pictureBox1);
             itemContainer.Controls.Add(itemOption);
             itemContainer.Location = new Point(0, 0);
@@ -138,6 +143,18 @@
             itemContainer.Size = new Size(215, 52);
             itemContainer.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(147, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(32, 32);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // itemOption
             // 
             itemOption.BackColor = Color.DodgerBlue;
@@ -145,7 +162,6 @@
             itemOption.FlatAppearance.MouseDownBackColor = Color.SkyBlue;
             itemOption.FlatAppearance.MouseOverBackColor = Color.DeepSkyBlue;
             itemOption.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            itemOption.Image = (Image)resources.GetObject("itemOption.Image");
             itemOption.ImageAlign = ContentAlignment.MiddleLeft;
             itemOption.Location = new Point(-9, -11);
             itemOption.Name = "itemOption";
@@ -231,6 +247,7 @@
             // panel1
             // 
             panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(button1);
             panel1.Location = new Point(3, 59);
             panel1.Name = "panel1";
@@ -244,11 +261,9 @@
             button1.FlatAppearance.MouseDownBackColor = Color.SkyBlue;
             button1.FlatAppearance.MouseOverBackColor = Color.DeepSkyBlue;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(-9, -11);
             button1.Name = "button1";
-            button1.Padding = new Padding(15, 0, 0, 0);
             button1.Size = new Size(233, 73);
             button1.TabIndex = 0;
             button1.Text = "Logout";
@@ -272,11 +287,11 @@
             // sideBarToggle
             // 
             sideBarToggle.Dock = DockStyle.Left;
+            sideBarToggle.Image = (Image)resources.GetObject("sideBarToggle.Image");
             sideBarToggle.Location = new Point(0, 0);
             sideBarToggle.Name = "sideBarToggle";
             sideBarToggle.Size = new Size(55, 41);
             sideBarToggle.TabIndex = 0;
-            sideBarToggle.Text = "ToggleSideBar";
             sideBarToggle.UseVisualStyleBackColor = true;
             sideBarToggle.Click += sideBarToggle_Click;
             // 
@@ -289,14 +304,14 @@
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Location = new Point(6, 46);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(803, 249);
@@ -501,17 +516,29 @@
             itemPanel.TabIndex = 4;
             itemPanel.Visible = false;
             // 
-            // pictureBox1
+            // pictureBox2
             // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(147, 13);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(30, 31);
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.BackgroundImageLayout = ImageLayout.None;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(9, 8);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(30, 41);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox3.BackgroundImageLayout = ImageLayout.None;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(9, 8);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(30, 41);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 3;
+            pictureBox3.TabStop = false;
             // 
             // MainForm
             // 
@@ -530,6 +557,7 @@
             itemMenu.ResumeLayout(false);
             itemContainer.ResumeLayout(false);
             itemContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             basesSubContainer.ResumeLayout(false);
             mattressSubContainer.ResumeLayout(false);
             fabricSubContainer.ResumeLayout(false);
@@ -542,7 +570,8 @@
             fabricPanel.PerformLayout();
             itemPanel.ResumeLayout(false);
             itemPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -589,5 +618,7 @@
         private Button newItem;
         private Panel itemPanel;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
     }
 }
