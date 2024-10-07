@@ -112,9 +112,9 @@ namespace Managment
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     dataGridView1.DataSource = dt;
+                    tableRows = dt.Rows.Count;
                 }
                 tableName = db_TableName;
-                tableRows = dataGridView1.RowCount - 1;
             }
             catch (Exception ex)
             {
@@ -302,57 +302,11 @@ namespace Managment
             }
         }
 
-        private async void newItem_Click(object sender, EventArgs e)
+        private void newItem_Click(object sender, EventArgs e)
         {
-            if (rowIndex > 0) return;
-
-            try
-            {
-                string sqlQuery = "";
-                tableRows++;
-                if (tableName == "BASEDB")
-                    sqlQuery = $"INSERT INTO {tableName} (ID, BASENAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
-                          "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
-                else if (tableName == "MATTRESSDB")
-                    sqlQuery = $"INSERT INTO {tableName} (ID, MATTRESSNAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
-                          "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
-                else
-                    sqlQuery = $"INSERT INTO {tableName} (ID, FABRICNAME, METERS) VALUES (@newId, @newName, @newMeters)";
-
-                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
-                {
-                    await conn.OpenAsync(); // Open the connection asynchronously
-                    if (tableName == "BASEDB" || tableName == "MATTRESSDB")
-                    {
-                        cmd.Parameters.AddWithValue("@newId", tableRows);
-                        cmd.Parameters.AddWithValue("@newName", itemName.Text);
-                        cmd.Parameters.AddWithValue("@newX", itemDimensionX.Text);
-                        cmd.Parameters.AddWithValue("@newy", itemDimensionY.Text);
-                        cmd.Parameters.AddWithValue("@newQuantity", itemQuantity.Text);                        
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@newId", tableRows);
-                        cmd.Parameters.AddWithValue("@newName", fabricName.Text);
-                        cmd.Parameters.AddWithValue("@newMeters", fabricMeter.Text);
-                    }
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    await conn.CloseAsync(); // Close the connection asynchronously
-                }
-                FillDataGrid(tableName);
-                ClearValues();
-            }
+            NewItemForm newItemForm = new NewItemForm();
+            newItemForm.ShowDialog();
+            FillDataGrid(tableName);
         }
     }
 } 

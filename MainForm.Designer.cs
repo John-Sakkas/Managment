@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             sideBarMenu = new FlowLayoutPanel();
             itemMenu = new FlowLayoutPanel();
             itemContainer = new Panel();
+            pictureBox3 = new PictureBox();
             pictureBox1 = new PictureBox();
             itemOption = new Button();
             basesSubContainer = new Panel();
@@ -45,6 +46,7 @@
             fabricSubContainer = new Panel();
             fabricsSubOption = new Button();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             button1 = new Button();
             itemMenuTransition = new System.Windows.Forms.Timer(components);
             panel2 = new Panel();
@@ -71,23 +73,21 @@
             fabricMeter = new TextBox();
             newItem = new Button();
             itemPanel = new Panel();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
             sideBarMenu.SuspendLayout();
             itemMenu.SuspendLayout();
             itemContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             basesSubContainer.SuspendLayout();
             mattressSubContainer.SuspendLayout();
             fabricSubContainer.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             base_mattressPanel.SuspendLayout();
             fabricPanel.SuspendLayout();
             itemPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -142,6 +142,18 @@
             itemContainer.Name = "itemContainer";
             itemContainer.Size = new Size(215, 52);
             itemContainer.TabIndex = 5;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox3.BackgroundImageLayout = ImageLayout.None;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(9, 8);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(30, 41);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 3;
+            pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -253,6 +265,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(215, 52);
             panel1.TabIndex = 6;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox2.BackgroundImageLayout = ImageLayout.None;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(9, 8);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(30, 41);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
             // 
             // button1
             // 
@@ -516,30 +540,6 @@
             itemPanel.TabIndex = 4;
             itemPanel.Visible = false;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox2.BackgroundImageLayout = ImageLayout.None;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(9, 8);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(30, 41);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 2;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox3.BackgroundImageLayout = ImageLayout.None;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(9, 8);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(30, 41);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 3;
-            pictureBox3.TabStop = false;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -557,11 +557,13 @@
             itemMenu.ResumeLayout(false);
             itemContainer.ResumeLayout(false);
             itemContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             basesSubContainer.ResumeLayout(false);
             mattressSubContainer.ResumeLayout(false);
             fabricSubContainer.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             base_mattressPanel.ResumeLayout(false);
@@ -570,8 +572,6 @@
             fabricPanel.PerformLayout();
             itemPanel.ResumeLayout(false);
             itemPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

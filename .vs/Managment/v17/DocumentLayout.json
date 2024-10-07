@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "F:\\VisualStudioProjects\\Managment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\newitemform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:newitemform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\newitemform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:newitemform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|F:\\VisualStudioProjects\\Managment\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\staticvariables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:staticvariables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,15 +42,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StaticVariables.cs",
-              "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\StaticVariables.cs",
-              "RelativeDocumentMoniker": "StaticVariables.cs",
-              "ToolTip": "F:\\VisualStudioProjects\\Managment\\StaticVariables.cs",
-              "RelativeToolTip": "StaticVariables.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAPAAAA",
+              "DocumentIndex": 0,
+              "Title": "NewItemForm.cs",
+              "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs",
+              "RelativeDocumentMoniker": "NewItemForm.cs",
+              "ToolTip": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs",
+              "RelativeToolTip": "NewItemForm.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAADwvywAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T18:02:31.517Z"
+              "WhenOpened": "2024-10-07T16:07:57.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NewItemForm.cs [Design]",
+              "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs",
+              "RelativeDocumentMoniker": "NewItemForm.cs",
+              "ToolTip": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs [Design]",
+              "RelativeToolTip": "NewItemForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T16:01:19.748Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -56,14 +73,14 @@
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAQwDkAAAAqAAAA",
+              "ViewState": "AQIAAO4AAAAAAAAAAAAiwDMBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-18T19:39:31.313Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -75,26 +92,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T19:12:06.827Z"
+              "WhenOpened": "2024-09-11T19:12:06.827Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAA1wAgAAABPAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwAgAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T18:55:12.932Z"
+              "WhenOpened": "2024-09-11T18:55:12.932Z",
+              "EditorCaption": ""
             }
           ]
         }
