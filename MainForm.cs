@@ -25,7 +25,6 @@ namespace Managment
         private int tableRows = 0;
         bool fromLogout = false;
 
-
         public MainForm()
         {
             InitializeComponent();
