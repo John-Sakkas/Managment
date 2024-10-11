@@ -42,13 +42,19 @@ namespace Managment
             {
                 tableName = (comboBox1.SelectedIndex == 0) ? "BASEDB" : "MATTRESSDB";
                 basePanel.Visible = true;
+                basePanel.Enabled = true;
+
                 fabricPanel.Visible = false;
+                fabricPanel.Enabled = false;
             }
             else
             {
                 tableName = "FABRICDB";
                 basePanel.Visible = false;
+                basePanel.Enabled = false;
+
                 fabricPanel.Visible = true;
+                fabricPanel.Enabled = true;
             }
             tableRows = GetTableRows(tableName).Result;
         }

@@ -33,6 +33,10 @@
             comboBox1 = new ComboBox();
             itemCategory = new Label();
             fabricPanel = new Panel();
+            label8 = new Label();
+            fabricName = new TextBox();
+            label9 = new Label();
+            fabricMeter = new TextBox();
             basePanel = new Panel();
             label1 = new Label();
             itemName = new TextBox();
@@ -42,10 +46,6 @@
             itemQuantity = new TextBox();
             itemDimensionY = new TextBox();
             label10 = new Label();
-            label8 = new Label();
-            fabricName = new TextBox();
-            label9 = new Label();
-            fabricMeter = new TextBox();
             fabricPanel.SuspendLayout();
             basePanel.SuspendLayout();
             SuspendLayout();
@@ -102,6 +102,40 @@
             fabricPanel.TabIndex = 16;
             fabricPanel.Visible = false;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(3, 25);
+            label8.Name = "label8";
+            label8.Size = new Size(94, 21);
+            label8.TabIndex = 1;
+            label8.Text = "Item Name :";
+            // 
+            // fabricName
+            // 
+            fabricName.Location = new Point(143, 23);
+            fabricName.Name = "fabricName";
+            fabricName.Size = new Size(143, 23);
+            fabricName.TabIndex = 2;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(3, 68);
+            label9.Name = "label9";
+            label9.Size = new Size(100, 21);
+            label9.TabIndex = 3;
+            label9.Text = "Item Meters :";
+            // 
+            // fabricMeter
+            // 
+            fabricMeter.Location = new Point(143, 68);
+            fabricMeter.Name = "fabricMeter";
+            fabricMeter.Size = new Size(57, 23);
+            fabricMeter.TabIndex = 4;
+            // 
             // basePanel
             // 
             basePanel.Controls.Add(label1);
@@ -112,6 +146,7 @@
             basePanel.Controls.Add(itemQuantity);
             basePanel.Controls.Add(itemDimensionY);
             basePanel.Controls.Add(label10);
+            basePanel.Enabled = false;
             basePanel.Location = new Point(41, 83);
             basePanel.Name = "basePanel";
             basePanel.Size = new Size(312, 172);
@@ -184,40 +219,6 @@
             label10.Size = new Size(112, 21);
             label10.TabIndex = 7;
             label10.Text = "Item Quantity :";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(3, 25);
-            label8.Name = "label8";
-            label8.Size = new Size(94, 21);
-            label8.TabIndex = 1;
-            label8.Text = "Item Name :";
-            // 
-            // fabricName
-            // 
-            fabricName.Location = new Point(143, 23);
-            fabricName.Name = "fabricName";
-            fabricName.Size = new Size(143, 23);
-            fabricName.TabIndex = 2;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(3, 68);
-            label9.Name = "label9";
-            label9.Size = new Size(100, 21);
-            label9.TabIndex = 3;
-            label9.Text = "Item Meters :";
-            // 
-            // fabricMeter
-            // 
-            fabricMeter.Location = new Point(143, 68);
-            fabricMeter.Name = "fabricMeter";
-            fabricMeter.Size = new Size(57, 23);
-            fabricMeter.TabIndex = 4;
             // 
             // NewItemForm
             // 
