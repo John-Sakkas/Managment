@@ -20,7 +20,6 @@ namespace Managment
         SqlConnection conn = new SqlConnection(StaticVariables.connectionString);
         Form1 loginForm;
         private int rowIndex = 0;
-        private int rowId = 0;
         string tableName;
         private int tableRows = 0;
         bool fromLogout = false;
@@ -130,22 +129,16 @@ namespace Managment
 
         private void basesSubOption_Click(object sender, EventArgs e)
         {
-            base_mattressPanel.Visible = true;
-            fabricPanel.Visible = false;
             FillDataGrid("BASEDB");
         }
 
         private void mattressSubOption_Click(object sender, EventArgs e)
         {
-            base_mattressPanel.Visible = true;
-            fabricPanel.Visible = false;
             FillDataGrid("MATTRESSDB");
         }
 
         private void fabricsSubOption_Click(object sender, EventArgs e)
         {
-            base_mattressPanel.Visible = false;
-            fabricPanel.Visible = true;
             FillDataGrid("FABRICDB");
         }
 
@@ -168,84 +161,10 @@ namespace Managment
             // Ensure the click is within the grid and not on header cells
             if (e.RowIndex >= 0)
             {
-                // Get the entire row
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                if (tableName == "BASEDB" || tableName == "MATTRESSDB")
-                {
                     rowIndex = e.RowIndex;
-                    rowId = (int)row.Cells[0].Value;
-                    itemName.Text = row.Cells[1].Value.ToString();
-                    itemDimensionX.Text = row.Cells[2].Value.ToString();
-                    itemDimensionY.Text = row.Cells[3].Value.ToString();
-                    itemQuantity.Text = row.Cells[4].Value.ToString();
                     editButton.Enabled = true;
                     deleteButton.Enabled = true;
                     newItem.Enabled = false;
-                }
-                else
-                {
-                    rowIndex = e.RowIndex;
-                    rowId = (int)row.Cells[0].Value;
-                    fabricName.Text = row.Cells[1].Value.ToString();
-                    fabricMeter.Text = row.Cells[2].Value.ToString();
-                    editButton.Enabled = true;
-                    deleteButton.Enabled = true;
-                    newItem.Enabled = false;
-                }
-            }
-        }
-
-        private async void EditButton_Click(object sender, EventArgs e)
-        {
-            if (rowIndex < 0) return;
-            try
-            {
-                string sqlQuery = "";
-
-                if (tableName == "BASEDB")
-                    sqlQuery = $"UPDATE {tableName} SET BASENAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
-                        ", QUANTITY = @newQuantity WHERE Id = @id";
-                else if (tableName == "MATTRESSDB")
-                    sqlQuery = $"UPDATE {tableName} SET MATTRESSNAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
-                        ", QUANTITY = @newQuantity WHERE Id = @id";
-                else
-                    sqlQuery = $"UPDATE {tableName} SET FABRICNAME = @newName, METERS = @newMeters WHERE Id = @id";
-
-                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
-                {
-                    await conn.OpenAsync(); // Open the connection asynchronously
-                    if (tableName == "BASEDB" || tableName == "MATTRESSDB")
-                    {
-
-                        cmd.Parameters.AddWithValue("@newName", itemName.Text);
-                        cmd.Parameters.AddWithValue("@newX", itemDimensionX.Text);
-                        cmd.Parameters.AddWithValue("@newy", itemDimensionY.Text);
-                        cmd.Parameters.AddWithValue("@newQuantity", itemQuantity.Text);
-                        cmd.Parameters.AddWithValue("@id", rowId);
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@newName", fabricName.Text);
-                        cmd.Parameters.AddWithValue("@newMeters", fabricMeter.Text);
-                        cmd.Parameters.AddWithValue("@id", rowId);
-                    }
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    await conn.CloseAsync(); // Close the connection asynchronously
-                }
-                FillDataGrid(tableName);
-                ClearValues();
             }
         }
 
@@ -257,22 +176,16 @@ namespace Managment
         private void ClearValues()
         {
             rowIndex = 0;
-            rowId = 0;
-            itemName.Text = "";
-            itemDimensionX.Text = "";
-            itemDimensionY.Text = "";
-            itemQuantity.Text = "";
-            fabricName.Text = "";
-            fabricMeter.Text = "";
             editButton.Enabled = false;
             deleteButton.Enabled = false;
             newItem.Enabled = true;
-
         }
 
         private async void deleteButton_Click(object sender, EventArgs e)
         {
             if (rowIndex < 0) return;
+
+            int rowId = (int)dataGridView1.Rows[rowIndex].Cells[0].Value;
             try
             {
                 string sqlQuery = $"DELETE FROM {tableName} WHERE Id = @id";
@@ -303,7 +216,15 @@ namespace Managment
 
         private void newItem_Click(object sender, EventArgs e)
         {
-            NewItemForm newItemForm = new NewItemForm();
+            NewItemForm newItemForm = new NewItemForm(0);
+            newItemForm.ShowDialog();
+            FillDataGrid(tableName);
+        }
+        private async void EditButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.Rows[rowIndex];
+
+            NewItemForm newItemForm = new NewItemForm(1, row, tableName);
             newItemForm.ShowDialog();
             FillDataGrid(tableName);
         }
