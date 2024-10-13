@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,7 +41,7 @@ namespace Managment
         {
             if (comboBox1.SelectedIndex == 0 || comboBox1.SelectedIndex == 1)
             {
-                tableName = (comboBox1.SelectedIndex == 0) ? "BASEDB" : "MATTRESSDB";
+                tableName = (comboBox1.SelectedIndex == 0) ? StaticVariables.baseDB : StaticVariables.mattressDB;
                 basePanel.Visible = true;
                 basePanel.Enabled = true;
 
@@ -49,7 +50,7 @@ namespace Managment
             }
             else
             {
-                tableName = "FABRICDB";
+                tableName = StaticVariables.fabricDB;
                 basePanel.Visible = false;
                 basePanel.Enabled = false;
 
@@ -73,10 +74,10 @@ namespace Managment
             {
                 string sqlQuery = "";
                 tableRows++;
-                if (tableName == "BASEDB")
+                if (tableName == StaticVariables.baseDB)
                     sqlQuery = $"INSERT INTO {tableName} (ID, BASENAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
                           "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
-                else if (tableName == "MATTRESSDB")
+                else if (tableName == StaticVariables.mattressDB)
                     sqlQuery = $"INSERT INTO {tableName} (ID, MATTRESSNAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
                           "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
                 else
@@ -85,7 +86,7 @@ namespace Managment
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
                     await conn.OpenAsync(); // Open the connection asynchronously
-                    if (tableName == "BASEDB" || tableName == "MATTRESSDB")
+                    if (tableName == StaticVariables.baseDB || tableName == StaticVariables.mattressDB)
                     {
                         cmd.Parameters.AddWithValue("@newId", tableRows);
                         cmd.Parameters.AddWithValue("@newName", itemName.Text);
@@ -124,10 +125,10 @@ namespace Managment
             {
                 string sqlQuery = "";
 
-                if (tableName == "BASEDB")
+                if (tableName == StaticVariables.baseDB)
                     sqlQuery = $"UPDATE {tableName} SET BASENAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
                         ", QUANTITY = @newQuantity WHERE Id = @id";
-                else if (tableName == "MATTRESSDB")
+                else if (tableName == StaticVariables.mattressDB)
                     sqlQuery = $"UPDATE {tableName} SET MATTRESSNAME = @newName, DIMENSIONX = @newX, DIMENSIONy = @newy" +
                         ", QUANTITY = @newQuantity WHERE Id = @id";
                 else
@@ -136,7 +137,7 @@ namespace Managment
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
                     await conn.OpenAsync(); // Open the connection asynchronously
-                    if (tableName == "BASEDB" || tableName == "MATTRESSDB")
+                    if (tableName == StaticVariables.baseDB || tableName == StaticVariables.mattressDB)
                     {
 
                         cmd.Parameters.AddWithValue("@newName", itemName.Text);
@@ -172,7 +173,7 @@ namespace Managment
 
         private void FillTextBoxFields()
         {
-            if (tableName == "BASEDB" || tableName == "MATTRESSDB")
+            if (tableName == StaticVariables.baseDB || tableName == StaticVariables.mattressDB)
             {
                 basePanel.Visible = true;
                 fabricPanel.Visible = false;

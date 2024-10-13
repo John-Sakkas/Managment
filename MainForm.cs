@@ -129,17 +129,17 @@ namespace Managment
 
         private void basesSubOption_Click(object sender, EventArgs e)
         {
-            FillDataGrid("BASEDB");
+            FillDataGrid(StaticVariables.baseDB);
         }
 
         private void mattressSubOption_Click(object sender, EventArgs e)
         {
-            FillDataGrid("MATTRESSDB");
+            FillDataGrid(StaticVariables.mattressDB);
         }
 
         private void fabricsSubOption_Click(object sender, EventArgs e)
         {
-            FillDataGrid("FABRICDB");
+            FillDataGrid(StaticVariables.fabricDB);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -218,9 +218,10 @@ namespace Managment
         {
             NewItemForm newItemForm = new NewItemForm(0);
             newItemForm.ShowDialog();
-            FillDataGrid(tableName);
+            if(dataGridView1.DataSource != null)
+                FillDataGrid(tableName);
         }
-        private async void EditButton_Click(object sender, EventArgs e)
+        private void EditButton_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dataGridView1.Rows[rowIndex];
 
