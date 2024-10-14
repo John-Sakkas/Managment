@@ -73,7 +73,6 @@ namespace Managment
             try
             {
                 string sqlQuery = "";
-                tableRows++;
                 if (tableName == StaticVariables.baseDB)
                     sqlQuery = $"INSERT INTO {tableName} (ID, BASENAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
                           "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
@@ -104,6 +103,7 @@ namespace Managment
                     cmd.ExecuteNonQuery();
                 }
 
+                tableRows++;
                 this.Close();
             }
             catch (Exception ex)
@@ -195,11 +195,6 @@ namespace Managment
             }
         }
        
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private async Task<int> GetTableRows(string db_TableName)
         {
             try
@@ -212,7 +207,7 @@ namespace Managment
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, conn);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    tableRows = dt.Rows.Count;
+                    tableRows = dt.Rows.Count+1;
                 }
             }
             catch (Exception ex)
@@ -228,5 +223,11 @@ namespace Managment
             }
             return tableRows;
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
