@@ -59,7 +59,6 @@ namespace Managment
             }
             tableRows = GetTableRows(tableName).Result;
         }
-
         private void sumbitButton_Click(object sender, EventArgs e)
         {
             if (formCategoryId == 0) //New Item Form
@@ -67,7 +66,6 @@ namespace Managment
             else // Edit Item
                 EditItemDBCommand();
         }
-
         private async void NewItemDBCommand() 
         {
             try
@@ -228,6 +226,5 @@ namespace Managment
         {
             this.Close();
         }
-
     }
 }
