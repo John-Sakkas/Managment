@@ -57,7 +57,7 @@ namespace Managment
                 fabricPanel.Visible = true;
                 fabricPanel.Enabled = true;
             }
-            tableRows = GetTableRows(tableName).Result;
+            //tableRows = GetTableRows(tableName).Result;
         }
         private void sumbitButton_Click(object sender, EventArgs e)
         {
@@ -72,20 +72,19 @@ namespace Managment
             {
                 string sqlQuery = "";
                 if (tableName == StaticVariables.baseDB)
-                    sqlQuery = $"INSERT INTO {tableName} (ID, BASENAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
-                          "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
+                    sqlQuery = $"INSERT INTO {tableName} (BASENAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
+                          "VALUES (@newName, @newX, @newy, @newQuantity)";
                 else if (tableName == StaticVariables.mattressDB)
-                    sqlQuery = $"INSERT INTO {tableName} (ID, MATTRESSNAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
-                          "VALUES (@newId, @newName, @newX, @newy, @newQuantity)";
+                    sqlQuery = $"INSERT INTO {tableName} (MATTRESSNAME, DIMENSIONX, DIMENSIONY, QUANTITY) " +
+                          "VALUES (@newName, @newX, @newy, @newQuantity)";
                 else
-                    sqlQuery = $"INSERT INTO {tableName} (ID, FABRICNAME, METERS) VALUES (@newId, @newName, @newMeters)";
+                    sqlQuery = $"INSERT INTO {tableName} (FABRICNAME, METERS) VALUES (@newName, @newMeters)";
 
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
                     await conn.OpenAsync(); // Open the connection asynchronously
                     if (tableName == StaticVariables.baseDB || tableName == StaticVariables.mattressDB)
                     {
-                        cmd.Parameters.AddWithValue("@newId", tableRows);
                         cmd.Parameters.AddWithValue("@newName", itemName.Text);
                         cmd.Parameters.AddWithValue("@newX", itemDimensionX.Text);
                         cmd.Parameters.AddWithValue("@newy", itemDimensionY.Text);
@@ -93,7 +92,6 @@ namespace Managment
                     }
                     else
                     {
-                        cmd.Parameters.AddWithValue("@newId", tableRows);
                         cmd.Parameters.AddWithValue("@newName", fabricName.Text);
                         cmd.Parameters.AddWithValue("@newMeters", fabricMeter.Text);
                     }

@@ -54,7 +54,8 @@
               "RelativeToolTip": "StaticVariables.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T20:19:14.968Z"
+              "WhenOpened": "2024-10-13T20:19:14.968Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -64,7 +65,7 @@
               "RelativeDocumentMoniker": "NewItemForm.cs",
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs",
               "RelativeToolTip": "NewItemForm.cs",
-              "ViewState": "AQIAAM8AAAAAAAAAAAAAAOQAAAAEAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAhwMEAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T16:07:57.537Z",
               "EditorCaption": ""
@@ -78,7 +79,8 @@
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs [Design]",
               "RelativeToolTip": "NewItemForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T16:01:19.748Z"
+              "WhenOpened": "2024-10-07T16:01:19.748Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -102,7 +104,8 @@
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T18:48:55.431Z"
+              "WhenOpened": "2024-09-17T18:48:55.431Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -113,7 +116,8 @@
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T19:12:06.827Z"
+              "WhenOpened": "2024-09-11T19:12:06.827Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -125,7 +129,8 @@
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAgwAgAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T18:55:12.932Z"
+              "WhenOpened": "2024-09-11T18:55:12.932Z",
+              "EditorCaption": ""
             }
           ]
         }
