@@ -57,8 +57,8 @@ namespace Managment
                 fabricPanel.Visible = true;
                 fabricPanel.Enabled = true;
             }
-            //tableRows = GetTableRows(tableName).Result;
         }
+
         private void sumbitButton_Click(object sender, EventArgs e)
         {
             if (formCategoryId == 0) //New Item Form
@@ -189,35 +189,6 @@ namespace Managment
                 fabricName.Text = values.Cells[1].Value.ToString();
                 fabricMeter.Text = values.Cells[2].Value.ToString();
             }
-        }
-       
-        private async Task<int> GetTableRows(string db_TableName)
-        {
-            try
-            {
-                string sqlQuery = $"SELECT * FROM {db_TableName}";
-
-                using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
-                {
-                    await conn.OpenAsync(); // Open the connection asynchronously
-                    SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, conn);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    tableRows = dt.Rows.Count+1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    await conn.CloseAsync(); // Close the connection asynchronously
-                }
-            }
-            return tableRows;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
