@@ -183,17 +183,18 @@ namespace Managment
 
         private async void deleteButton_Click(object sender, EventArgs e)
         {
-            if (rowIndex < 0) return;
+            var dataGridItem = dataGridView1.Rows[rowIndex].Cells[0].Value;
+            if (dataGridItem == null) return;
 
-            int rowId = (int)dataGridView1.Rows[rowIndex].Cells[0].Value;
+            int rowId = (int)dataGridItem;
             try
             {
                 string sqlQuery = $"DELETE FROM {tableName} WHERE Id = @id";
 
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
-                    await conn.OpenAsync(); // Open the connection asynchronously
-                    cmd.Parameters.AddWithValue("@id", rowId); // Assuming rowIndex + 1 corresponds to the ID to be deleted
+                    await conn.OpenAsync();
+                    cmd.Parameters.AddWithValue("@id", rowId);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -207,7 +208,7 @@ namespace Managment
             {
                 if (conn.State == ConnectionState.Open)
                 {
-                    await conn.CloseAsync(); // Close the connection asynchronously
+                    await conn.CloseAsync();
                 }
                 FillDataGrid(tableName);
                 ClearValues();
@@ -221,11 +222,13 @@ namespace Managment
             if(dataGridView1.DataSource != null)
                 FillDataGrid(tableName);
         }
+
         private void EditButton_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dataGridView1.Rows[rowIndex];
+            if (row.Cells[0].Value == null) return;
 
-            NewItemForm newItemForm = new NewItemForm(1, row, tableName);
+            NewItemForm newItemForm = new (1, row, tableName);
             newItemForm.ShowDialog();
             FillDataGrid(tableName);
         }

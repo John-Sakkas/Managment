@@ -28,9 +28,11 @@ namespace Managment
         {
             InitializeComponent();
             formCategoryId = formCategory;
+            formMethod.Text = "New Item";
             if (rowValues != null) 
             {
                 comboBox1.Enabled = false;
+                formMethod.Text = "Item Edit";
                 tableName = tableId;
                 values = rowValues;
                 FillTextBoxFields();
@@ -66,6 +68,7 @@ namespace Managment
             else // Edit Item
                 EditItemDBCommand();
         }
+
         private async void NewItemDBCommand() 
         {
             try
@@ -82,7 +85,7 @@ namespace Managment
 
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
-                    await conn.OpenAsync(); // Open the connection asynchronously
+                    await conn.OpenAsync();
                     if (tableName == StaticVariables.baseDB || tableName == StaticVariables.mattressDB)
                     {
                         cmd.Parameters.AddWithValue("@newName", itemName.Text);
@@ -110,7 +113,7 @@ namespace Managment
             {
                 if (conn.State == ConnectionState.Open)
                 {
-                    await conn.CloseAsync(); // Close the connection asynchronously
+                    await conn.CloseAsync();
                 }
             }
         }
@@ -132,7 +135,7 @@ namespace Managment
 
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
-                    await conn.OpenAsync(); // Open the connection asynchronously
+                    await conn.OpenAsync();
                     if (tableName == StaticVariables.baseDB || tableName == StaticVariables.mattressDB)
                     {
 
@@ -162,7 +165,7 @@ namespace Managment
             {
                 if (conn.State == ConnectionState.Open)
                 {
-                    await conn.CloseAsync(); // Close the connection asynchronously
+                    await conn.CloseAsync();
                 }
             }
         }
