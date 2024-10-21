@@ -15,7 +15,6 @@ namespace Managment
 {
     public partial class NewItemForm : Form
     {
-
         SqlConnection conn = new SqlConnection(StaticVariables.connectionString);
         private DataGridViewRow values;
         private string tableName;
