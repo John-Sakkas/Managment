@@ -15,6 +15,7 @@ namespace Managment
         public CostumMessageBox()
         {
             InitializeComponent();
+            pictureBox1.Image = Image.FromFile(@"bin/Images/icons8-cancel-48.png");
         }
     }
 }

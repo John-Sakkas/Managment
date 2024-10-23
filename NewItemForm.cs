@@ -103,10 +103,14 @@ namespace Managment
 
                 tableRows++;
                 this.Close();
+                CostumMessageBox customMessageBox = new CostumMessageBox();
+                customMessageBox.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                CostumMessageBox customMessageBox = new CostumMessageBox();
+                customMessageBox.ShowDialog();
             }
             finally
             {
@@ -155,10 +159,14 @@ namespace Managment
                 }
 
                 this.Close();
+                CostumMessageBox customMessageBox = new CostumMessageBox();
+                customMessageBox.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                CostumMessageBox customMessageBox = new CostumMessageBox();
+                customMessageBox.ShowDialog();
             }
             finally
             {

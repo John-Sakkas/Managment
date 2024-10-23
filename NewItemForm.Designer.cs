@@ -53,7 +53,7 @@
             // 
             // sumbitButton
             // 
-            sumbitButton.Location = new Point(83, 352);
+            sumbitButton.Location = new Point(82, 341);
             sumbitButton.Name = "sumbitButton";
             sumbitButton.Size = new Size(112, 46);
             sumbitButton.TabIndex = 0;
@@ -63,7 +63,7 @@
             // 
             // cancelButton
             // 
-            cancelButton.Location = new Point(201, 352);
+            cancelButton.Location = new Point(200, 341);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(112, 46);
             cancelButton.TabIndex = 1;
