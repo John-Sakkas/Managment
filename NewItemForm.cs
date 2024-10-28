@@ -103,7 +103,7 @@ namespace Managment
 
                 tableRows++;
                 this.Close();
-                CostumMessageBox customMessageBox = new CostumMessageBox();
+                CostumMessageBox customMessageBox = new CostumMessageBox(true);
                 customMessageBox.ShowDialog();
             }
             catch (Exception ex)
@@ -159,7 +159,7 @@ namespace Managment
                 }
 
                 this.Close();
-                CostumMessageBox customMessageBox = new CostumMessageBox();
+                CostumMessageBox customMessageBox = new CostumMessageBox(true);
                 customMessageBox.ShowDialog();
             }
             catch (Exception ex)

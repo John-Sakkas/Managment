@@ -12,11 +12,21 @@ namespace Managment
 {
     public partial class CostumMessageBox : Form
     {
-        public CostumMessageBox()
+        public CostumMessageBox(bool isSuccessufl = false)
         {
             InitializeComponent();
-            pictureBox1.Image = Image.FromFile(@"bin/Images/icons8-cancel-48.png");
-
+            if (isSuccessufl)
+            {
+                pictureBox1.Image = Properties.Resources.success;
+                Text = "Successulfy";
+                messageBox.Text = "Successulfy";
+            }
+            else 
+            {
+                pictureBox1.Image = Properties.Resources.failed;
+                Text = "Failed";
+                messageBox.Text = "Failed";
+            }
         }
     }
 }

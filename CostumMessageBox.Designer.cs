@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CostumMessageBox));
             messageBox = new Label();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -46,7 +45,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Image = Properties.Resources.success;
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(48, 48);
@@ -57,11 +56,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(233, 86);
+            ClientSize = new Size(221, 80);
             Controls.Add(pictureBox1);
             Controls.Add(messageBox);
             Name = "CostumMessageBox";
-            Text = "CostumMessageBox";
+            Text = "Successully";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
