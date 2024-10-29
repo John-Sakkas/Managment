@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:costummessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|F:\\VisualStudioProjects\\Managment\\costummessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:costummessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|f:\\visualstudioprojects\\managment\\newitemform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:newitemform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|F:\\VisualStudioProjects\\Managment\\costummessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|solutionrelative:costummessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C73DF621-9AD4-43E5-8A52-8079B4810E92}|Managment.csproj|F:\\VisualStudioProjects\\Managment\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -44,14 +44,14 @@
               "RelativeDocumentMoniker": "CostumMessageBox.cs",
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\CostumMessageBox.cs",
               "RelativeToolTip": "CostumMessageBox.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T19:54:41.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CostumMessageBox.cs [Design]",
               "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\CostumMessageBox.cs",
               "RelativeDocumentMoniker": "CostumMessageBox.cs",
@@ -63,13 +63,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "NewItemForm.cs",
               "DocumentMoniker": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs",
               "RelativeDocumentMoniker": "NewItemForm.cs",
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\NewItemForm.cs",
               "RelativeToolTip": "NewItemForm.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAIwKEAAABNAAAA",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAIwKEAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T16:07:57.537Z",
               "EditorCaption": ""
@@ -94,8 +94,7 @@
               "ToolTip": "F:\\VisualStudioProjects\\Managment\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T18:48:55.431Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-17T18:48:55.431Z"
             }
           ]
         }
