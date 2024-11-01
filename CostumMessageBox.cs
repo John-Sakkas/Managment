@@ -12,7 +12,7 @@ namespace Managment
 {
     public partial class CostumMessageBox : Form
     {
-        public CostumMessageBox(bool isSuccessufl = false)
+        public CostumMessageBox(bool isSuccessufl, string errorInfoText = "")
         {
             InitializeComponent();
             if (isSuccessufl)
@@ -20,12 +20,14 @@ namespace Managment
                 pictureBox1.Image = Properties.Resources.success;
                 Text = "Successulfy";
                 messageBox.Text = "Successulfy";
+                errorInfo.Visible = false;
             }
             else 
             {
                 pictureBox1.Image = Properties.Resources.failed;
                 Text = "Failed";
                 messageBox.Text = "Failed";
+                toolTip1.SetToolTip(errorInfo, errorInfoText);
             }
         }
     }

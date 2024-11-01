@@ -109,7 +109,7 @@ namespace Managment
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                CostumMessageBox customMessageBox = new CostumMessageBox();
+                CostumMessageBox customMessageBox = new CostumMessageBox(false,ex.Message);
                 customMessageBox.ShowDialog();
             }
             finally
@@ -165,7 +165,7 @@ namespace Managment
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                CostumMessageBox customMessageBox = new CostumMessageBox();
+                CostumMessageBox customMessageBox = new CostumMessageBox(false,ex.Message);
                 customMessageBox.ShowDialog();
             }
             finally
