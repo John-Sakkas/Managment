@@ -27,8 +27,17 @@ namespace Managment
                 pictureBox1.Image = Properties.Resources.failed;
                 Text = "Failed";
                 messageBox.Text = "Failed";
-                toolTip1.SetToolTip(errorInfo, errorInfoText);
+                toolTip1.SetToolTip(errorInfo, CustomeErrorMessage(errorInfoText));
             }
+        }
+
+        private string CustomeErrorMessage(String errorMessage)
+        {
+            if (errorMessage.Contains("String or binary data would be truncated in table"))
+            {
+                return "Name must be max 25 characters";
+            }
+            return "";
         }
     }
 }
