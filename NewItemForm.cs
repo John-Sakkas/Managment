@@ -21,14 +21,14 @@ namespace Managment
 
         private int rowId;
         private int tableRows = 0;
-        private int formCategoryId;        
+        private int formCategoryId;
 
-        public NewItemForm(int formCategory , DataGridViewRow rowValues = null , string tableId = "")
+        public NewItemForm(int formCategory, DataGridViewRow rowValues = null, string tableId = "")
         {
             InitializeComponent();
             formCategoryId = formCategory;
             formMethod.Text = "New Item";
-            if (rowValues != null) 
+            if (rowValues != null)
             {
                 comboBox1.Enabled = false;
                 formMethod.Text = "Item Edit";
@@ -68,7 +68,7 @@ namespace Managment
                 EditItemDBCommand();
         }
 
-        private async void NewItemDBCommand() 
+        private async void NewItemDBCommand()
         {
             try
             {
@@ -109,7 +109,7 @@ namespace Managment
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                CostumMessageBox customMessageBox = new CostumMessageBox(false,ex.Message);
+                CostumMessageBox customMessageBox = new CostumMessageBox(false, ex.Message);
                 customMessageBox.ShowDialog();
             }
             finally
@@ -165,7 +165,7 @@ namespace Managment
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                CostumMessageBox customMessageBox = new CostumMessageBox(false,ex.Message);
+                CostumMessageBox customMessageBox = new CostumMessageBox(false, ex.Message);
                 customMessageBox.ShowDialog();
             }
             finally
@@ -182,6 +182,7 @@ namespace Managment
             if (tableName == StaticVariables.baseDB || tableName == StaticVariables.mattressDB)
             {
                 basePanel.Visible = true;
+                basePanel.Enabled = true;
                 fabricPanel.Visible = false;
 
                 rowId = (int)values.Cells[0].Value;
@@ -194,6 +195,7 @@ namespace Managment
             {
                 basePanel.Visible = false;
                 fabricPanel.Visible = true;
+                fabricPanel.Enabled = true;
 
                 rowId = (int)values.Cells[0].Value;
                 fabricName.Text = values.Cells[1].Value.ToString();
@@ -204,6 +206,14 @@ namespace Managment
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void itemName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar))
+            { 
+                e.Handled = true;
+            }
         }
     }
 }

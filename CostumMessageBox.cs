@@ -35,7 +35,7 @@ namespace Managment
         {
             if (errorMessage.Contains("String or binary data would be truncated in table"))
             {
-                return "Name must be max 25 characters";
+                return "Name must be max 10 characters";
             }
             return "";
         }

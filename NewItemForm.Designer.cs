@@ -53,7 +53,7 @@
             // 
             // sumbitButton
             // 
-            sumbitButton.Location = new Point(82, 341);
+            sumbitButton.Location = new Point(82, 298);
             sumbitButton.Name = "sumbitButton";
             sumbitButton.Size = new Size(112, 46);
             sumbitButton.TabIndex = 0;
@@ -63,7 +63,7 @@
             // 
             // cancelButton
             // 
-            cancelButton.Location = new Point(200, 341);
+            cancelButton.Location = new Point(200, 298);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(112, 46);
             cancelButton.TabIndex = 1;
@@ -76,7 +76,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Bases", "Mattress", "Fabric" });
-            comboBox1.Location = new Point(165, 75);
+            comboBox1.Location = new Point(163, 59);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(201, 23);
             comboBox1.TabIndex = 2;
@@ -86,7 +86,7 @@
             // 
             itemCategory.AutoSize = true;
             itemCategory.Font = new Font("Segoe UI", 14F);
-            itemCategory.Location = new Point(15, 70);
+            itemCategory.Location = new Point(13, 54);
             itemCategory.Name = "itemCategory";
             itemCategory.Size = new Size(144, 25);
             itemCategory.TabIndex = 3;
@@ -98,11 +98,11 @@
             fabricPanel.Controls.Add(fabricName);
             fabricPanel.Controls.Add(label9);
             fabricPanel.Controls.Add(fabricMeter);
-            fabricPanel.Location = new Point(44, 144);
+            fabricPanel.Enabled = false;
+            fabricPanel.Location = new Point(42, 101);
             fabricPanel.Name = "fabricPanel";
             fabricPanel.Size = new Size(305, 156);
             fabricPanel.TabIndex = 16;
-            fabricPanel.Visible = false;
             // 
             // label8
             // 
@@ -149,7 +149,7 @@
             basePanel.Controls.Add(itemDimensionY);
             basePanel.Controls.Add(label10);
             basePanel.Enabled = false;
-            basePanel.Location = new Point(44, 144);
+            basePanel.Location = new Point(42, 101);
             basePanel.Name = "basePanel";
             basePanel.Size = new Size(312, 172);
             basePanel.TabIndex = 14;
@@ -167,9 +167,11 @@
             // itemName
             // 
             itemName.Location = new Point(143, 23);
+            itemName.MaxLength = 10;
             itemName.Name = "itemName";
             itemName.Size = new Size(143, 23);
             itemName.TabIndex = 2;
+            itemName.KeyPress += itemName_KeyPress;
             // 
             // label2
             // 
@@ -201,6 +203,7 @@
             // itemQuantity
             // 
             itemQuantity.Location = new Point(143, 109);
+            itemQuantity.MaxLength = 10;
             itemQuantity.Name = "itemQuantity";
             itemQuantity.Size = new Size(143, 23);
             itemQuantity.TabIndex = 8;
@@ -236,7 +239,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(391, 410);
+            ClientSize = new Size(391, 364);
             Controls.Add(formMethod);
             Controls.Add(basePanel);
             Controls.Add(fabricPanel);
